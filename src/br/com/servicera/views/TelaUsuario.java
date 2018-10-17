@@ -25,6 +25,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     public TelaUsuario() {
         initComponents();
         conexao = ModuloConexao.conector();
+                
+        
+        TxtUsuNome.requestFocus();
+        
         pesquisarUsuario();
     }
 

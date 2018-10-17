@@ -103,10 +103,10 @@ public class TelaOS extends javax.swing.JInternalFrame {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
-                txtNumeroOs.setText(rs.getString(0));
-                txtDataOs.setText(rs.getString(1));
+                txtNumeroOs.setText(rs.getString(1));
+                txtDataOs.setText(rs.getString(2));
                 // SETANDO OS RADIO BUTTONS
-                String rbtTipo = rs.getString(2);
+                String rbtTipo = rs.getString(3);
                 if (rbtTipo.equals("OS")) {
                     rbOS.setSelected(true);
                     tipo = "OS";
@@ -114,13 +114,13 @@ public class TelaOS extends javax.swing.JInternalFrame {
                     rbOrcamento.setSelected(true);
                     tipo = "Orçamento";
                 }
-                cboOsSit.setSelectedItem(rs.getString(3));
-                txtOsEquip.setText(rs.getString(4));
-                txtOsDef.setText(rs.getString(5));
-                txtOsServ.setText(rs.getString(6));
-                txtOsTec.setText(rs.getString(7));
-                txtOsVal.setText(rs.getString(8));
-                txtCliId.setText(rs.getString(9));
+                cboOsSit.setSelectedItem(rs.getString(4));
+                txtOsEquip.setText(rs.getString(5));
+                txtOsDef.setText(rs.getString(6));
+                txtOsServ.setText(rs.getString(7));
+                txtOsTec.setText(rs.getString(8));
+                txtOsVal.setText(rs.getString(9));
+                txtCliId.setText(rs.getString(10));
                 btnCreate.setEnabled(false);
                 txtCliPesquisar.setEnabled(false);
                 tblClientes.setVisible(false);
