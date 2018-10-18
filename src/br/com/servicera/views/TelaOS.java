@@ -47,8 +47,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
         // os codigos abaixo desabilitam os campos Id do Cliente, Defeito, Equipamento, Valor Total, Tecnico e Serviço.
         ativar();
     } // metodo para limpar os campos
-    
-    
 
     private void pesquisar_cliente() {
         String sql = "Select idcli as ID,nomecli as Nome,fonecli as Fone from tbclientes where nomecli like?";
