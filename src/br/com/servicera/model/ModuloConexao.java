@@ -12,7 +12,7 @@ public class ModuloConexao {
         // está sendo atribuida a variavel driver o caminho "com.mysql.cj.jdbc.Driver"
         String driver = "com.mysql.cj.jdbc.Driver";
         // Armazenando inforamções referente ao Banco
-        String url = "jdbc:mysql://localhost:3306/dbinfox?useTimezone=true&serverTimezone=UTC"; 
+        String url = "jdbc:mysql://localhost:3306/servicera?useTimezone=true&serverTimezone=UTC"; 
         // localhost é para um banco de dados local, 3306 é a porta do banco de dados local, dbinfox é o nome do banco que iremos utilizar;
         String user = "root"; // usuario do banco
         String password = ""; // senha do banco
