@@ -48,7 +48,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     TelaPrincipal.MenRel.setEnabled(true); //MenRel foi trocado para publico para poder ser utilizado, pois quando são criados eles vem preSetados como Private.
                     TelaPrincipal.MenCadUsu.setEnabled(true); //MenCadUsu foi trocado para publico para poder ser utilizado, pois quando são criados eles vem preSetados como Private.
                     TelaPrincipal.lblUsuario.setText(rs.getString(2)); //LblUsuario foi trocado para publico e ser utilizado, pois quando são criados eles vem preSetados como Private
-                    TelaPrincipal.lblUsuario.setForeground(Color.red); //Caso for administrador ele será presetado como vermelho a letra do Usuario.
+                    TelaPrincipal.lblUsuario.setForeground(Color.blue); //Caso for administrador ele será presetado como vermelho a letra do Usuario.
                     this.dispose(); //com este comando você fecha a tela que estava aberta anteriormente 
                     conexao.close(); // aqui fechamos a conexão com o banco de dados, por motivos de segurança.
                 } else {

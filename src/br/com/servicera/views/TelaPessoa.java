@@ -94,8 +94,8 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
         txtCliId.setText(tblClientes.getModel().getValueAt(setar, 0).toString());
         txtCliNome.setText(tblClientes.getModel().getValueAt(setar, 1).toString());
         txtCliEndereco.setText(tblClientes.getModel().getValueAt(setar, 2).toString());
-        txtCliFone.setText(tblClientes.getModel().getValueAt(setar, 3).toString());
-        txtCliEmail.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
+        txtCliEmail.setText(tblClientes.getModel().getValueAt(setar, 3).toString());
+        txtCliFone.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
 
         btnAdicionar.setEnabled(false);
     }
@@ -246,7 +246,7 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Endereço", "Telefone", "Email"
+                "ID", "Nome", "Endereço", "Email", "Telefone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -322,9 +322,9 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                         .addComponent(btnDeletar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addGap(69, 69, 69)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -367,10 +367,10 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                             .addComponent(btnDeletar)
                             .addComponent(btnAdicionar)))
                     .addComponent(btnLimpar))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 640, 471);
+        setBounds(0, 0, 640, 480);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
