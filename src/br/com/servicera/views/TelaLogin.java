@@ -3,6 +3,7 @@ package br.com.servicera.views;
 import java.sql.*;
 import br.com.servicera.model.ModuloConexao;
 import br.com.servicera.model.Usuarios;
+import br.com.servicera.model.UsuariosDao;
 import br.com.servicera.util.Criptografia;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -15,8 +16,8 @@ public class TelaLogin extends javax.swing.JFrame {
     //os 3 frameworks acima estão todos dentro da "import java.sql.*;"
 
     public void logar() throws Exception{
-        Usuarios usuario = new Usuarios();
-        boolean login = usuario.realizaLogin(txtusuario.getText(), txtsenha.getText(), pst, rs, conexao);
+        UsuariosDao dao = new UsuariosDao();
+        boolean login = dao.realizaLogin(txtusuario.getText(), txtsenha.getText(), pst, rs, conexao);
         
         if(login){
             this.dispose();
