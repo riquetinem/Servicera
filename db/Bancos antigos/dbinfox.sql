@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2018 at 04:01 AM
+-- Generation Time: Oct 11, 2018 at 10:51 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -42,12 +42,7 @@ CREATE TABLE `tbclientes` (
 
 INSERT INTO `tbclientes` (`idcli`, `nomecli`, `endcli`, `fonecli`, `emailcli`) VALUES
 (1, 'Linus Torvalds', 'Rua Tux, 2015', '9999-9999', 'linus@linus.com'),
-(2, 'Thomas Thorm', 'Rua da Publicação', '11 9 7738-7625', 'gabrielribello100@gmail.com'),
-(3, 'Manilus Manolis', 'Rua das Trincheiras', '11 8856-6636', 'forapt@forapt'),
-(4, 'Fernando Uhaad', 'Rua da Libertação', '13 1352-1312', 'lulalivre@pt.com'),
-(5, 'Antonio da Silva', 'Rua Tuiuti', '11 9 7856-3521', 'antoniaoservic@serviços.com'),
-(6, 'Henrique Tinem', 'Rua Manguaçal', '11 9 8565-2563', 'henriquetinem1@blablabla'),
-(7, 'Camila Peres', 'Rua Honji', '11 9 5865-6532', 'camilaperes@gmail.com');
+(2, 'Thomas Thorm', 'Rua da Publicação', '11 9 7738-7625', 'gabrielribello100@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -73,11 +68,9 @@ CREATE TABLE `tbos` (
 --
 
 INSERT INTO `tbos` (`os`, `dataos`, `tipo`, `situacao`, `equipamento`, `defeito`, `servico`, `tecnico`, `valor`, `idcli`) VALUES
-(1, '2018-10-09 15:21:58', 'Orçamento', 'Na Bancada', 'Notebook', 'Não Liga', 'Troca da Fonte', 'Muerto', '87.50', 1),
+(1, '2018-10-09 15:21:58', '', '', 'Notebook', 'Não Liga', 'Troca da Fonte', 'Zé', '87.50', 1),
 (2, '2018-10-11 20:30:47', 'Orçamento', 'Aguardando Aprovação', 'Notebook', 'Não Liga', 'Troca da Fonte', 'Gabriel', '150.00', 1),
-(4, '2018-10-13 02:21:00', 'Orçamento', 'Entrega Ok', 'Notebook Famous', 'Não Ligava', 'OK', 'Zézinho', '152.52', 1),
-(5, '2018-10-13 08:05:53', 'Orçamento', 'Aguardando Peças', 'Monitor 144hz', 'Botão não funciona', 'troca de botão', 'Zézinho', '150.25', 6),
-(6, '2018-10-13 19:24:37', 'Orçamento', 'Na Bancada', 'Notebook Papo', 'Tela não liga', 'Troca de Tela', 'Zé', '350.00', 7);
+(3, '2018-10-11 20:39:32', 'Orçamento', 'Aguardando Peças', 'Impressora', 'Não está puxando papel', '', 'Gabriel', '150.60', 2);
 
 -- --------------------------------------------------------
 
@@ -90,7 +83,7 @@ CREATE TABLE `tbusuarios` (
   `usuario` varchar(50) NOT NULL,
   `fone` varchar(15) DEFAULT NULL,
   `login` varchar(15) NOT NULL,
-  `senha` varchar(60) NOT NULL,
+  `senha` varchar(15) NOT NULL,
   `perfil` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -99,8 +92,8 @@ CREATE TABLE `tbusuarios` (
 --
 
 INSERT INTO `tbusuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`, `perfil`) VALUES
-(1, 'Administrador', '3333-3333', 'adm', 'b09c600fddc573f117449b3723f23d64', 'admin'),
-(4, 'Zezinho', '11 9 5656-9464', 'ze', 'b09c600fddc573f117449b3723f23d64', 'user');
+(1, 'Administrador', '3333-3333', 'adm', 'adm', 'admin'),
+(3, 'Jennyfer Ophelia dos Santos', '11 9 8856-3565', 'Jen', '5564', 'user');
 
 --
 -- Indexes for dumped tables
@@ -134,19 +127,19 @@ ALTER TABLE `tbusuarios`
 -- AUTO_INCREMENT for table `tbclientes`
 --
 ALTER TABLE `tbclientes`
-  MODIFY `idcli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idcli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbos`
 --
 ALTER TABLE `tbos`
-  MODIFY `os` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `os` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbusuarios`
 --
 ALTER TABLE `tbusuarios`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
