@@ -11,9 +11,17 @@ public class TelaLogin extends javax.swing.JFrame{
     PreparedStatement pst = null;
     ResultSet rs = null;
     
-    public void logar() throws Exception{
+    private void logar() throws SQLException{
+        String user = txtusuario.getText();
+        String senha = txtsenha.getText();
         UsuariosDao dao = new UsuariosDao();
-        boolean login = dao.realizaLogin(txtusuario.getText(), txtsenha.getText(), pst, rs, conexao);
+        boolean login;
+        
+        try{
+            login = dao.realizaLogin(user, senha);
+        } catch (Exception ex){
+            throw new RuntimeException(ex);
+        }
 
         if (login) {
             this.dispose();
@@ -108,8 +116,8 @@ public class TelaLogin extends javax.swing.JFrame{
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
             logar();
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "PERDI O CONTROLE DA MINHA VIDA JA, SÓ QUERO DESISTIR E MORRER EM PAZ, OBRIGADO!");
+        } catch (SQLException e){
+            throw new RuntimeException(e);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
     

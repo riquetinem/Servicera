@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2018 at 05:06 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: 19-Out-2018 às 23:11
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -18,10 +18,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE `servicera`;
-
-USE `servicera`;
-
 --
 -- Database: `servicera`
 --
@@ -29,7 +25,7 @@ USE `servicera`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbclientes`
+-- Estrutura da tabela `tbclientes`
 --
 
 CREATE TABLE `tbclientes` (
@@ -41,7 +37,7 @@ CREATE TABLE `tbclientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbclientes`
+-- Extraindo dados da tabela `tbclientes`
 --
 
 INSERT INTO `tbclientes` (`idcli`, `nomecli`, `endcli`, `fonecli`, `emailcli`) VALUES
@@ -51,16 +47,17 @@ INSERT INTO `tbclientes` (`idcli`, `nomecli`, `endcli`, `fonecli`, `emailcli`) V
 (4, 'Fernando Uhaad', 'Rua da Libertação', '13 1352-1312', 'lulalivre@pt.com'),
 (5, 'Antonio da Silva', 'Rua Tuiuti', '11 9 7856-3521', 'antoniaoservic@serviços.com'),
 (6, 'Henrique Tinem', 'Rua Manguaçal', '11 9 8565-2563', 'henriquetinem1@blablabla'),
-(7, 'Camila Peres', 'Rua Honji', '11 9 5865-6532', 'camilaperes@gmail.com');
+(7, 'Camila Peres', 'Rua Honji', '11 9 5865-6532', 'camilaperes@gmail.com'),
+(8, 'Gabriel', 'DAOCU', '123', '123@123.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbos`
+-- Estrutura da tabela `tbos`
 --
 
 CREATE TABLE `tbos` (
-  `os` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `dataos` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tipo` varchar(30) NOT NULL,
   `situacao` varchar(20) NOT NULL,
@@ -73,20 +70,22 @@ CREATE TABLE `tbos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbos`
+-- Extraindo dados da tabela `tbos`
 --
 
-INSERT INTO `tbos` (`os`, `dataos`, `tipo`, `situacao`, `equipamento`, `defeito`, `servico`, `tecnico`, `valor`, `idcli`) VALUES
+INSERT INTO `tbos` (`id`, `dataos`, `tipo`, `situacao`, `equipamento`, `defeito`, `servico`, `tecnico`, `valor`, `idcli`) VALUES
 (1, '2018-10-09 15:21:58', 'Orçamento', 'Na Bancada', 'Notebook', 'Não Liga', 'Troca da Fonte', 'Muerto', '87.50', 1),
 (2, '2018-10-11 20:30:47', 'Orçamento', 'Aguardando Aprovação', 'Notebook', 'Não Liga', 'Troca da Fonte', 'Gabriel', '150.00', 1),
 (4, '2018-10-13 02:21:00', 'Orçamento', 'Entrega Ok', 'Notebook Famous', 'Não Ligava', 'OK', 'Zézinho', '152.52', 1),
 (5, '2018-10-13 08:05:53', 'Orçamento', 'Aguardando Peças', 'Monitor 144hz', 'Botão não funciona', 'troca de botão', 'Zézinho', '150.25', 6),
-(6, '2018-10-13 19:24:37', 'Orçamento', 'Na Bancada', 'Notebook Papo', 'Tela não liga', 'Troca de Tela', 'Zé', '350.00', 7);
+(6, '2018-10-13 19:24:37', 'Orçamento', 'Na Bancada', 'Notebook Papo', 'Tela não liga', 'Troca de Tela', 'Zé', '350.00', 7),
+(7, '2018-10-19 00:00:01', 'OS', 'Na Bancada', 'Notebook', 'cu', 'mete no cu', 'ze buceta', '1000.00', 6),
+(8, '2018-10-19 19:02:28', 'Orçamento', 'Entrega Ok', 'Notebook', 'Ta vivo', 'Quebrar na porrada', 'zé buceta', '1000.00', 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbusuarios`
+-- Estrutura da tabela `tbusuarios`
 --
 
 CREATE TABLE `tbusuarios` (
@@ -99,12 +98,13 @@ CREATE TABLE `tbusuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbusuarios`
+-- Extraindo dados da tabela `tbusuarios`
 --
 
 INSERT INTO `tbusuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`, `perfil`) VALUES
 (1, 'Administrador', '3333-3333', 'adm', 'b09c600fddc573f117449b3723f23d64', 'admin'),
-(4, 'Zezinho', '11 9 5656-9464', 'ze', 'b09c600fddc573f117449b3723f23d64', 'user');
+(5, 'Henrique', '11949054687', 'tinem', 'e10adc3949ba59abbe56e057f20f883e', 'admin'),
+(6, 'cu', '1111111', 'batata', 'd41d8cd98f00b204e9800998ecf8427e', 'user');
 
 --
 -- Indexes for dumped tables
@@ -120,7 +120,7 @@ ALTER TABLE `tbclientes`
 -- Indexes for table `tbos`
 --
 ALTER TABLE `tbos`
-  ADD PRIMARY KEY (`os`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `idcli` (`idcli`);
 
 --
@@ -138,26 +138,26 @@ ALTER TABLE `tbusuarios`
 -- AUTO_INCREMENT for table `tbclientes`
 --
 ALTER TABLE `tbclientes`
-  MODIFY `idcli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idcli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbos`
 --
 ALTER TABLE `tbos`
-  MODIFY `os` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbusuarios`
 --
 ALTER TABLE `tbusuarios`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `tbos`
+-- Limitadores para a tabela `tbos`
 --
 ALTER TABLE `tbos`
   ADD CONSTRAINT `tbos_ibfk_1` FOREIGN KEY (`idcli`) REFERENCES `tbclientes` (`idcli`);
