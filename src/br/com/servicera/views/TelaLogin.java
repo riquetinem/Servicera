@@ -1,45 +1,37 @@
 package br.com.servicera.views;
 
 import java.sql.*;
-import br.com.servicera.model.ModuloConexao;
-import br.com.servicera.model.Usuarios;
+import br.com.servicera.model.ConnectionFactory;
 import br.com.servicera.model.UsuariosDao;
-import br.com.servicera.util.Criptografia;
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
-public class TelaLogin extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JFrame{
 
-    Connection conexao = null; // cria uma framework de conexão com o banco de dados, que se encontra dentro da "java.sql.*"
-    PreparedStatement pst = null; //mais um conjunto de bliblioteca para manipular as instruções SQL, para poder utilizar códigos SQL dentro do JAVA 
-    ResultSet rs = null; //Exibir o resultado das instruções sql utlizadas no Java
-    //os 3 frameworks acima estão todos dentro da "import java.sql.*;"
-
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
     public void logar() throws Exception{
         UsuariosDao dao = new UsuariosDao();
         boolean login = dao.realizaLogin(txtusuario.getText(), txtsenha.getText(), pst, rs, conexao);
-        
-        if(login){
+
+        if (login) {
             this.dispose();
         }
     }
 
-    public TelaLogin() {
+    public TelaLogin(){
         initComponents();
-        conexao = ModuloConexao.conector();
-        // a linha abaixo serve de apoio para saber o status da conexão.
-        //System.out.println(conexao); (Utilizada para apoio para saber se a conexão com o banco está fechada ou aberta.
+        conexao = ConnectionFactory.getConnection();
         if (conexao != null) {
             lblstatus.setText("Conectado");
         } else {
             lblstatus.setText("Desconectado");
         }
-        
-        // seta o botão de logar como padrão, caso aperte enter ele vai automaticamente
+
         getRootPane().setDefaultButton(btnLogin);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -114,15 +106,12 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // chamando o metodo logar  
         try{
-            logar();  
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Banco de dados não conectado, verifique sua internet ou seu localhost.", "ATENÇÃO!!!!!", JOptionPane.CLOSED_OPTION);
+            logar();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "PERDI O CONTROLE DA MINHA VIDA JA, SÓ QUERO DESISTIR E MORRER EM PAZ, OBRIGADO!");
         }
-        
     }//GEN-LAST:event_btnLoginActionPerformed
-
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

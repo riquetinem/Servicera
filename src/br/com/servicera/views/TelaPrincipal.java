@@ -1,6 +1,6 @@
 package br.com.servicera.views;
 
-import br.com.servicera.model.ModuloConexao;
+import br.com.servicera.model.ConnectionFactory;
 import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -16,7 +16,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
         initComponents();
-        conexao = ModuloConexao.conector();
+        conexao = ConnectionFactory.getConnection();
     }
 
     private void rel_cli(){

@@ -6,7 +6,7 @@
 package br.com.servicera.views;
 
 import java.sql.*;
-import br.com.servicera.model.ModuloConexao;
+import br.com.servicera.model.ConnectionFactory;
 import javax.swing.JOptionPane;
 // a linha abaixo importa recursos da biblioteca rs2xml.jar
 import net.proteanit.sql.DbUtils;
@@ -26,7 +26,7 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
      */
     public TelaPessoa() {
         initComponents();
-        conexao = ModuloConexao.conector();
+        conexao = ConnectionFactory.getConnection();
         pesquisar_cliente();
     }
 
