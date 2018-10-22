@@ -17,7 +17,6 @@ public class UsuariosDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
         
-        
         pst = conexao.prepareStatement(sql);
         pst.setString(1, user);
 
@@ -27,7 +26,6 @@ public class UsuariosDao {
         }catch(Exception ex){
             throw new RuntimeException(ex);
         }
-            
 
         pst.setString(2, senha);
 
@@ -54,6 +52,6 @@ public class UsuariosDao {
             conexao.close();
             return false;
         }
-
+        
     }
 }

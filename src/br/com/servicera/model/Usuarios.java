@@ -1,11 +1,5 @@
 package br.com.servicera.model;
 
-import br.com.servicera.util.Criptografia;
-import br.com.servicera.views.TelaPrincipal;
-import java.awt.Color;
-import java.sql.*;
-import javax.swing.JOptionPane;
-
 public class Usuarios {
 
     private int id;
@@ -43,6 +37,15 @@ public class Usuarios {
 
     public void setPessoa_id(int pessoa_id) {
         this.pessoa_id = pessoa_id;
+    }
+    
+    public boolean verificaSenha(String senha, String senhaConfirm){
+        if(senha.equals(senhaConfirm)){
+            return true;
+        } else {
+            
+            return false;
+        }
     }
 
 }
