@@ -2,25 +2,60 @@ package br.com.servicera.model;
 
 public class Usuarios {
 
-    private int id;
-    private String user;
+    private String id;
+    private String nome;
+    private String telefone;
+    private String login;
     private String senha;
-    private int pessoa_id;
+    private String perfil;
 
-    public int getId() {
+    public Usuarios(String id, String nome, String telefone, String login, String senha, String perfil) {
+        setId(id);
+        setNome(nome);
+        setTelefone(telefone);
+        setLogin(login);
+        setSenha(senha);
+        setPerfil(perfil);
+    }
+
+    public Usuarios(String nome, String telefone, String login, String senha, String perfil) {
+        setNome(nome);
+        setTelefone(telefone);
+        setLogin(login);
+        setSenha(senha);
+        setPerfil(perfil);
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSenha() {
@@ -31,19 +66,18 @@ public class Usuarios {
         this.senha = senha;
     }
 
-    public int getPessoa_id() {
-        return pessoa_id;
+    public String getPerfil() {
+        return perfil;
     }
 
-    public void setPessoa_id(int pessoa_id) {
-        this.pessoa_id = pessoa_id;
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
-    
-    public boolean verificaSenha(String senha, String senhaConfirm){
-        if(senha.equals(senhaConfirm)){
+
+    public boolean verificaSenha(String senhaConfirm) {
+        if (this.senha.equals(senhaConfirm)) {
             return true;
         } else {
-            
             return false;
         }
     }

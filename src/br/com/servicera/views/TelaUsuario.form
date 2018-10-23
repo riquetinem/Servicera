@@ -50,7 +50,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="txtCliPesquisar" min="-2" pref="182" max="-2" attributes="0"/>
+                              <Component id="txtPesquisar" min="-2" pref="182" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -69,9 +69,9 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cboUsuPerfil" pref="206" max="32767" attributes="0"/>
-                                  <Component id="TxtUsuNome" pref="206" max="32767" attributes="0"/>
-                                  <Component id="TxtUsuFone" max="32767" attributes="0"/>
+                                  <Component id="cmbPerfil" pref="206" max="32767" attributes="0"/>
+                                  <Component id="txtNome" pref="206" max="32767" attributes="0"/>
+                                  <Component id="txtTelefone" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -93,9 +93,9 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtUsuLogin" pref="144" max="32767" attributes="0"/>
-                                  <Component id="txtUsuSenha" max="32767" attributes="0"/>
-                                  <Component id="txtUsuConfSenha" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtLogin" pref="144" max="32767" attributes="0"/>
+                                  <Component id="txtSenha" max="32767" attributes="0"/>
+                                  <Component id="txtConfirmSenha" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="btnLimpar" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
@@ -116,7 +116,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCliPesquisar" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPesquisar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -126,17 +126,17 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TxtUsuNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TxtUsuFone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cboUsuPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -149,17 +149,17 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsuLogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLogin" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsuSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsuConfSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtConfirmSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -184,23 +184,19 @@
         <Property name="text" type="java.lang.String" value="Senha*: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtUsuNome">
+    <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Perfil* :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUsuLogin">
+    <Component class="javax.swing.JTextField" name="txtLogin">
     </Component>
-    <Component class="javax.swing.JComboBox" name="cboUsuPerfil">
+    <Component class="javax.swing.JComboBox" name="cmbPerfil">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="admin"/>
-            <StringItem index="1" value="user"/>
-            <StringItem index="2" value=" "/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -212,7 +208,7 @@
         <Property name="text" type="java.lang.String" value="Telefone* :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtUsuFone">
+    <Component class="javax.swing.JTextField" name="txtTelefone">
     </Component>
     <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>
@@ -336,9 +332,9 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCliPesquisar">
+    <Component class="javax.swing.JTextField" name="txtPesquisar">
       <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCliPesquisarKeyReleased"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesquisarKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -346,9 +342,9 @@
         <Property name="text" type="java.lang.String" value="Conf. Senha*: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtUsuSenha">
+    <Component class="javax.swing.JPasswordField" name="txtSenha">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtUsuConfSenha">
+    <Component class="javax.swing.JPasswordField" name="txtConfirmSenha">
     </Component>
   </SubComponents>
 </Form>

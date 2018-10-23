@@ -1,4 +1,4 @@
-package br.com.servicera.model;
+package br.com.servicera.dao;
 
 import java.sql.*;
 

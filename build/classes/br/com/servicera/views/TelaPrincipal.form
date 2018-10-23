@@ -96,27 +96,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="MenAju">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ajuda"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="MenAjuSob">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Alt+F1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br.com.infox.icones/Ajuda.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Sobre"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenAjuSobActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="MenOpc">
           <Properties>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
@@ -176,10 +155,8 @@
               <Component id="Desktop" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbldata" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                      <Component id="lblUsuario" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lbldata" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                  <Component id="lblUsuario" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>

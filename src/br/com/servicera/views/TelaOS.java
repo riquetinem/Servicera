@@ -1,7 +1,7 @@
 package br.com.servicera.views;
 
 import java.sql.*;
-import br.com.servicera.model.ConnectionFactory;
+import br.com.servicera.dao.ConnectionFactory;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -28,7 +28,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
         txtOsDef.setText("");
         txtOsEquip.setText("");
         txtOsVal.setText("");
-        txtOsTec.setText("");
+        cmbTecnico.setSelectedIndex(1);
         txtOsServ.setText("");
         txtNumeroOs.setText("");
         txtDataOs.setText("");
@@ -66,7 +66,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
             pst.setString(3, txtOsEquip.getText());
             pst.setString(4, txtOsDef.getText());
             pst.setString(5, txtOsServ.getText());
-            pst.setString(6, txtOsTec.getText());
+            pst.setString(6, cmbTecnico.getSelectedItem().toString());
             pst.setString(7, txtOsVal.getText().replace(",", ".")); 
             pst.setString(8, txtCliId.getText());
 
@@ -108,7 +108,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                 txtOsEquip.setText(rs.getString(5));
                 txtOsDef.setText(rs.getString(6));
                 txtOsServ.setText(rs.getString(7));
-                txtOsTec.setText(rs.getString(8));
+                cmbTecnico.setSelectedItem(rs.getString(8));
                 txtOsVal.setText(rs.getString(9));
                 txtCliId.setText(rs.getString(10));
                 btnCreate.setEnabled(false);
@@ -136,7 +136,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
             pst.setString(3, txtOsEquip.getText());
             pst.setString(4, txtOsDef.getText());
             pst.setString(5, txtOsServ.getText());
-            pst.setString(6, txtOsTec.getText());
+            pst.setString(6, cmbTecnico.getSelectedItem().toString());
             pst.setString(7, txtOsVal.getText().replace(",", "."));
             pst.setString(8, txtCliId.getText());
 
@@ -160,10 +160,10 @@ public class TelaOS extends javax.swing.JInternalFrame {
         txtOsDef.setEnabled(true);
         txtOsEquip.setEnabled(true);
         txtOsVal.setEnabled(true);
-        txtOsTec.setEnabled(true);
+        cmbTecnico.setEnabled(true);
         txtOsServ.setEnabled(true);
-    }// metodo para ativar os campos
-
+    }
+    
     private void excluirOs() {
         int Confirma_os = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir essa Ordem de serviço?", "ATENÇÃO!!!", JOptionPane.YES_NO_OPTION);
         if (Confirma_os == JOptionPane.YES_OPTION) {
@@ -227,7 +227,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         txtOsEquip = new javax.swing.JTextField();
         txtOsServ = new javax.swing.JTextField();
-        txtOsTec = new javax.swing.JTextField();
         txtOsVal = new javax.swing.JTextField();
         txtOsDef = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
@@ -237,6 +236,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
         btnImprime = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        cmbTecnico = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -411,8 +411,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
         txtOsServ.setEnabled(false);
 
-        txtOsTec.setEnabled(false);
-
         txtOsVal.setEnabled(false);
 
         txtOsDef.setEnabled(false);
@@ -481,45 +479,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(79, 79, 79)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtOsEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtOsDef))))
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOsVal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(34, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtOsServ))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtOsTec)))
-                                .addGap(27, 27, 27))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboOsSit, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCreate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDelete)
@@ -531,7 +490,45 @@ public class TelaOS extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnImprime, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 16, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(79, 79, 79)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtOsEquip, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                                            .addComponent(txtOsDef))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtOsServ, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cmbTecnico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel10)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtOsVal, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 6, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cboOsSit, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,12 +563,12 @@ public class TelaOS extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(txtOsTec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
                                     .addComponent(txtOsVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -579,7 +576,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
                     .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRead, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 640, 480);
@@ -640,6 +637,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboOsSit;
+    private javax.swing.JComboBox<String> cmbTecnico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -664,7 +662,6 @@ public class TelaOS extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtOsDef;
     private javax.swing.JTextField txtOsEquip;
     private javax.swing.JTextField txtOsServ;
-    private javax.swing.JTextField txtOsTec;
     private javax.swing.JTextField txtOsVal;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,7 @@
 package br.com.servicera.views;
 
 import java.sql.*;
-import br.com.servicera.model.ConnectionFactory;
+import br.com.servicera.dao.ConnectionFactory;
 import javax.swing.JOptionPane;
 // a linha abaixo importa recursos da biblioteca rs2xml.jar
 import net.proteanit.sql.DbUtils;
@@ -31,7 +31,6 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
     }
 
     private void limpar() {
-        txtCliId.setText("");
         txtCliNome.setText("");
         txtCliFone.setText("");
         txtCliEmail.setText("");
@@ -48,22 +47,16 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
             pst.setString(3, txtCliFone.getText());
             pst.setString(4, txtCliEmail.getText());
 
-// validação dos campos obrigatórios
             if ((((txtCliNome.getText().isEmpty()) || (txtCliEndereco.getText().isEmpty())) || (txtCliFone.getText().isEmpty())) || (txtCliEmail.getText().isEmpty())) {
-                //toda vez que você colocar mais uma coluna, você terá que abraçar ela com outro parenteses.
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
             } else {
+                int adicionado = pst.executeUpdate();
 
-                // a linha abaixo atualiza a tabela usuarios com os dados do formulario.
-                // a estrutura abaixo é usada para confirmar a inserção dos dados na tabela
-                int adicionado = pst.executeUpdate(); //o banco de dados pega os dados que foram assim inseridos.
-                //System.out.println(adicionado); apoio ao codigo para saber se está ocorrendo a inserção dos insert. pois o valor que é retornado é 1.
                 if (adicionado > 0) {
                     JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso.");
                     limpar();
                 } else {
                     JOptionPane.showMessageDialog(null, "Cliente não foi adicionado.");
-                    limpar();
                 }
             }
 
@@ -297,34 +290,35 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCliFone, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCliNome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(25, 25, 25)
-                                .addComponent(txtCliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCliEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAdicionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeletar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAlterar)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCliFone, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCliNome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(txtCliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCliEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAdicionar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnDeletar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAlterar)
+                                .addGap(69, 69, 69)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

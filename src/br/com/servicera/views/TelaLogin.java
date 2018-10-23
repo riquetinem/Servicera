@@ -1,8 +1,8 @@
 package br.com.servicera.views;
 
 import java.sql.*;
-import br.com.servicera.model.ConnectionFactory;
-import br.com.servicera.model.UsuariosDao;
+import br.com.servicera.dao.ConnectionFactory;
+import br.com.servicera.dao.UsuariosDao;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame{

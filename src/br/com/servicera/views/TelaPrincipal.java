@@ -1,6 +1,6 @@
 package br.com.servicera.views;
 
-import br.com.servicera.model.ConnectionFactory;
+import br.com.servicera.dao.ConnectionFactory;
 import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -21,7 +21,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void rel_cli(){
         int confirma = JOptionPane.showConfirmDialog(null,"Confirma a emissão deste relatório?","ATENÇÃO!!",JOptionPane.YES_NO_OPTION);
-        if (confirma==JOptionPane.YES_OPTION){
+        if (confirma == JOptionPane.YES_OPTION){
             //imprimindo relatório com framework JasperReports
             try {
                 //Usando a classe JasperPrint, para preparar a impressão de um relatório;
@@ -68,8 +68,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenRel = new javax.swing.JMenu();
         MenRelSer = new javax.swing.JMenuItem();
         menRelCli = new javax.swing.JMenuItem();
-        MenAju = new javax.swing.JMenu();
-        MenAjuSob = new javax.swing.JMenuItem();
         MenOpc = new javax.swing.JMenu();
         MenOpcSai = new javax.swing.JMenuItem();
 
@@ -165,20 +163,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(MenRel);
 
-        MenAju.setText("Ajuda");
-
-        MenAjuSob.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
-        MenAjuSob.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Ajuda.png"))); // NOI18N
-        MenAjuSob.setText("Sobre");
-        MenAjuSob.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenAjuSobActionPerformed(evt);
-            }
-        });
-        MenAju.add(MenAjuSob);
-
-        Menu.add(MenAju);
-
         MenOpc.setText("Opções");
 
         MenOpcSai.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
@@ -204,9 +188,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbldata, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbldata, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -253,12 +236,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_MenOpcSaiActionPerformed
 
-    private void MenAjuSobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenAjuSobActionPerformed
-        // Chamando a Tela Sobre;
-        TelaSobre sobre = new TelaSobre();//Criando uma instancia dessa classe para ser aberta
-        sobre.setVisible(true); //Utilizando a instancia para tornar visivel.
-    }//GEN-LAST:event_MenAjuSobActionPerformed
-
     private void MenCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadUsuActionPerformed
         // As linhas abaixo elas irão abrir o form TelaUsuario, dentro do Desktop Panel
         TelaUsuario usuario = new TelaUsuario(); //Criando uma instancia dessa classe para ser aberta
@@ -275,8 +252,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menRelCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menRelCliActionPerformed
         // gerando um relatorio de clientes
-        rel_cli();
-    
+        rel_cli();    
         
     }//GEN-LAST:event_menRelCliActionPerformed
 
@@ -322,8 +298,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
-    private javax.swing.JMenu MenAju;
-    private javax.swing.JMenuItem MenAjuSob;
     private javax.swing.JMenuItem MenCadCli;
     private javax.swing.JMenuItem MenCadOs;
     public static javax.swing.JMenuItem MenCadUsu;
