@@ -77,15 +77,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Desktop.setBackground(new java.awt.Color(204, 255, 204));
         Desktop.setBorder(new javax.swing.border.MatteBorder(null));
         Desktop.setForeground(new java.awt.Color(255, 255, 153));
-        Desktop.setPreferredSize(new java.awt.Dimension(800, 600));
+        Desktop.setPreferredSize(new java.awt.Dimension(1050, 600));
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
         DesktopLayout.setHorizontalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
+            .addGap(0, 1048, Short.MAX_VALUE)
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +189,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(828, 690));
+        setSize(new java.awt.Dimension(1078, 690));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
