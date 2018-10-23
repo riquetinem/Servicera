@@ -57,9 +57,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         Desktop = new javax.swing.JDesktopPane();
-        lblUsuario = new javax.swing.JLabel();
-        lbldata = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         menCad = new javax.swing.JMenu();
         MenCadCli = new javax.swing.JMenuItem();
@@ -82,31 +79,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Desktop.setBorder(new javax.swing.border.MatteBorder(null));
         Desktop.setForeground(new java.awt.Color(255, 255, 153));
-        Desktop.setPreferredSize(new java.awt.Dimension(640, 480));
+        Desktop.setPreferredSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
         DesktopLayout.setHorizontalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
         );
 
-        lblUsuario.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        lblUsuario.setText("Usuario:");
-
-        lbldata.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbldata.setText("Data:");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Servicera.png"))); // NOI18N
-
+        menCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/register.png"))); // NOI18N
         menCad.setText("Cadastro");
 
         MenCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Cliente.png"))); // NOI18N
+        MenCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Cliente.png"))); // NOI18N
         MenCadCli.setText("Pessoas");
         MenCadCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +106,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menCad.add(MenCadCli);
 
         MenCadOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/OS.png"))); // NOI18N
+        MenCadOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/OS.png"))); // NOI18N
         MenCadOs.setText("OS");
         MenCadOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +116,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menCad.add(MenCadOs);
 
         MenCadUsu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Usuario.png"))); // NOI18N
+        MenCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Usuario.png"))); // NOI18N
         MenCadUsu.setText("Usuarios");
         MenCadUsu.setEnabled(false);
         MenCadUsu.addActionListener(new java.awt.event.ActionListener() {
@@ -138,11 +128,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(menCad);
 
+        MenRel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/relatorio.png"))); // NOI18N
         MenRel.setText("Relatorio");
         MenRel.setEnabled(false);
 
         MenRelSer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
-        MenRelSer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Relatório OS.png"))); // NOI18N
+        MenRelSer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Relatório OS.png"))); // NOI18N
         MenRelSer.setText("Relatorio de Serviços");
         MenRelSer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenRel.add(MenRelSer);
 
         menRelCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Relatório Cli.png"))); // NOI18N
+        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Relatório Cli.png"))); // NOI18N
         menRelCli.setText("Relatório de Clientes");
         menRelCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,10 +154,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(MenRel);
 
+        MenOpc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/engrenagem.png"))); // NOI18N
         MenOpc.setText("Opções");
 
         MenOpcSai.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        MenOpcSai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/Sair.png"))); // NOI18N
+        MenOpcSai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Sair.png"))); // NOI18N
         MenOpcSai.setText("Sair");
         MenOpcSai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,30 +178,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbldata, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(lbldata, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(226, 226, 226)
-                .addComponent(jLabel2)
-                .addGap(450, 450, 450))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(961, 558));
+        setSize(new java.awt.Dimension(828, 690));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -222,9 +201,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // As linhas abaixo substituem a label data lbldata pela data atual do sistema ao inicializar o form
-        Date data = new Date();
-        DateFormat formatador = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        lbldata.setText(formatador.format(data));
+        //Date data = new Date();
+        //DateFormat formatador = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        //lbldata.setText(formatador.format(data));
 
     }//GEN-LAST:event_formWindowActivated
 
@@ -306,9 +285,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenu MenRel;
     private javax.swing.JMenuItem MenRelSer;
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel lblUsuario;
-    private javax.swing.JLabel lbldata;
     private javax.swing.JMenu menCad;
     private javax.swing.JMenuItem menRelCli;
     // End of variables declaration//GEN-END:variables

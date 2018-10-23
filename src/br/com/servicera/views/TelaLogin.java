@@ -66,7 +66,7 @@ public class TelaLogin extends javax.swing.JFrame{
             }
         });
 
-        lblstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.infox.icones/db.png"))); // NOI18N
+        lblstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/db.png"))); // NOI18N
         lblstatus.setText("Status");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

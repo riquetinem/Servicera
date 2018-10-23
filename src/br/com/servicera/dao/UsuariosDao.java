@@ -43,12 +43,12 @@ public class UsuariosDao {
                 principal.setVisible(true);
                 TelaPrincipal.MenRel.setEnabled(true);
                 TelaPrincipal.MenCadUsu.setEnabled(true);
-                TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                TelaPrincipal.lblUsuario.setForeground(Color.blue);
+                //TelaPrincipal.lblUsuario.setText(rs.getString(2));
+                //TelaPrincipal.lblUsuario.setForeground(Color.blue);
             } else {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
-                principal.lblUsuario.setText(rs.getString(2));
+                //principal.lblUsuario.setText(rs.getString(2));
             }
 
             conexao.close();
