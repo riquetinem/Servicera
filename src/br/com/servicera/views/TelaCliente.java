@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.servicera.views;
 
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
+import br.com.servicera.util.Formatacao;
 import javax.swing.JOptionPane;
-// a linha abaixo importa recursos da biblioteca rs2xml.jar
 import net.proteanit.sql.DbUtils;
 
-/**
- *
- * @author gabri
- */
-public class TelaPessoa extends javax.swing.JInternalFrame {
+public class TelaCliente extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
@@ -24,30 +15,34 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaCliente
      */
-    public TelaPessoa() {
+    public TelaCliente() {
         initComponents();
         conexao = ConnectionFactory.getConnection();
-        pesquisar_cliente();
+        pesquisarCliente();
+        
+        Formatacao format = new Formatacao();
+        
+        txtTelefone.setFormatterFactory(format.fone());
     }
 
     private void limpar() {
-        txtCliNome.setText("");
-        txtCliFone.setText("");
-        txtCliEmail.setText("");
-        txtCliEndereco.setText("");
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtEmail.setText("");
+        txtEndereco.setText("");
         btnAdicionar.setEnabled(true);
     } // metodo para limpar os campos
 
     private void adicionar() { // metodo para adicionar no banco de dados
-        String sql = "insert into tbclientes (nomecli,endcli,fonecli,emailcli) values (?,?,?,?)";
+        String sql = "insert into clientes (nome,endereco,fone,email) values (?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtCliNome.getText());
-            pst.setString(2, txtCliEndereco.getText());
-            pst.setString(3, txtCliFone.getText());
-            pst.setString(4, txtCliEmail.getText());
+            pst.setString(1, txtNome.getText());
+            pst.setString(2, txtEndereco.getText());
+            pst.setString(3, txtTelefone.getText());
+            pst.setString(4, txtEmail.getText());
 
-            if ((((txtCliNome.getText().isEmpty()) || (txtCliEndereco.getText().isEmpty())) || (txtCliFone.getText().isEmpty())) || (txtCliEmail.getText().isEmpty())) {
+            if ((((txtNome.getText().isEmpty()) || (txtEndereco.getText().isEmpty())) || (txtTelefone.getText().isEmpty())) || (txtEmail.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
             } else {
                 int adicionado = pst.executeUpdate();
@@ -55,6 +50,7 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                 if (adicionado > 0) {
                     JOptionPane.showMessageDialog(null, "Cliente adicionado com sucesso.");
                     limpar();
+                    pesquisarCliente();
                 } else {
                     JOptionPane.showMessageDialog(null, "Cliente não foi adicionado.");
                 }
@@ -66,13 +62,13 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
 
     } // metodo para adicionar campos em seu bd
 
-    private void pesquisar_cliente() {//metodo para pesquisar clientes com filtro
-        String sql = "Select idcli as ID,nomecli as Nome,fonecli as Fone,emailcli as Email from tbclientes where nomecli like?";
+    private void pesquisarCliente() {//metodo para pesquisar clientes com filtro
+        String sql = "Select id as ID,nome as Nome,fone as Telefone,email as Email from clientes where nome like?";
         try {
             pst = conexao.prepareStatement(sql);
             //passando o conteudo da caixa de pesquisa para o "?"
             //atenção ao % que é a continuação da sintaxe do Like
-            pst.setString(1, txtCliPesquisar.getText() + "%");
+            pst.setString(1, txtPesquisar.getText() + "%");
             rs = pst.executeQuery();
             //a linha abaixa usa a biblioteca rs2xml.jar para preencher a tabela
             tblClientes.setModel(DbUtils.resultSetToTableModel(rs));
@@ -84,11 +80,11 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
 
     public void setar_campos() {
         int setar = tblClientes.getSelectedRow();
-        txtCliId.setText(tblClientes.getModel().getValueAt(setar, 0).toString());
-        txtCliNome.setText(tblClientes.getModel().getValueAt(setar, 1).toString());
-        txtCliEndereco.setText(tblClientes.getModel().getValueAt(setar, 2).toString());
-        txtCliEmail.setText(tblClientes.getModel().getValueAt(setar, 3).toString());
-        txtCliFone.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
+        txtId.setText(tblClientes.getModel().getValueAt(setar, 0).toString());
+        txtNome.setText(tblClientes.getModel().getValueAt(setar, 1).toString());
+        txtEndereco.setText(tblClientes.getModel().getValueAt(setar, 2).toString());
+        txtEmail.setText(tblClientes.getModel().getValueAt(setar, 3).toString());
+        txtTelefone.setText(tblClientes.getModel().getValueAt(setar, 4).toString());
 
         btnAdicionar.setEnabled(false);
     }
@@ -96,16 +92,16 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
     private void alterar() {
         int confirma = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja atualizar este cliente ?", "Atenção!!", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION) {
-            String sql = "update tbclientes set nomecli =?,endcli =?, fonecli =?,emailcli =? where idcli =?";
+            String sql = "update clientes set nome = ?,endereco = ?, fone = ?,email = ? where id = ?";
             try {
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, txtCliNome.getText());
-                pst.setString(2, txtCliEndereco.getText());
-                pst.setString(3, txtCliFone.getText());
-                pst.setString(4, txtCliEmail.getText());
-                pst.setString(5, txtCliId.getText());
+                pst.setString(1, txtNome.getText());
+                pst.setString(2, txtEndereco.getText());
+                pst.setString(3, txtTelefone.getText());
+                pst.setString(4, txtEmail.getText());
+                pst.setString(5, txtId.getText());
                 // a estrutura abaixo é utilizada para a confirmação de atualização da tabela
-                if ((((txtCliNome.getText().isEmpty())) || (txtCliFone.getText().isEmpty()))) {
+                if ((((txtNome.getText().isEmpty())) || (txtTelefone.getText().isEmpty()))) {
                     //toda vez que você colocar mais uma coluna, você terá que abraçar ela com outro parenteses.
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
                 } else {
@@ -133,10 +129,10 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
         // a estrutura abaixo confirma a remoção do usuario
         int confirma = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover esse cliente ?", "Atenção!!", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION) {
-            String sql = "delete from tbclientes where idcli =?";
+            String sql = "delete from clientes where id =?";
             try {
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, txtCliId.getText());
+                pst.setString(1, txtId.getText());
                 int apagado = pst.executeUpdate();
                 if (apagado > 0) {
                     JOptionPane.showMessageDialog(null, "Cliente removido com sucesso");
@@ -155,33 +151,33 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtCliNome = new javax.swing.JTextField();
-        txtCliEndereco = new javax.swing.JTextField();
-        txtCliFone = new javax.swing.JTextField();
-        txtCliEmail = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        txtCliPesquisar = new javax.swing.JTextField();
+        txtPesquisar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        txtCliId = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Servicera - Cadastro de Pessoas");
+        setTitle("Servicera - Clientes");
         setPreferredSize(new java.awt.Dimension(640, 480));
 
-        jLabel1.setText("* Nome:");
+        jLabel1.setText("Nome*:");
 
         jLabel2.setText("Endereço:");
 
-        jLabel3.setText("* Telefone:");
+        jLabel3.setText("Telefone*:");
 
         jLabel4.setText("Email:");
 
@@ -227,9 +223,9 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
 
         jLabel5.setText("* Campos Obrigatorios");
 
-        txtCliPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCliPesquisarKeyReleased(evt);
+                txtPesquisarKeyReleased(evt);
             }
         });
 
@@ -276,7 +272,7 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
 
         jLabel7.setText("ID do Cliente: ");
 
-        txtCliId.setEnabled(false);
+        txtId.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,7 +283,7 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtCliPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addGap(106, 106, 106)
@@ -298,75 +294,73 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCliNome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCliFone, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNome))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addGap(25, 25, 25)
-                            .addComponent(txtCliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtCliEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCliPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtCliId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtCliNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtCliFone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtCliEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(txtCliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,10 +402,10 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tblClientesKeyReleased
 
-    private void txtCliPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCliPesquisarKeyReleased
+    private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
         // chamar o metodo pesquisar cliente
-        pesquisar_cliente();
-    }//GEN-LAST:event_txtCliPesquisarKeyReleased
+        pesquisarCliente();
+    }//GEN-LAST:event_txtPesquisarKeyReleased
 
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         // TODO add your handling code here:
@@ -433,11 +427,11 @@ public class TelaPessoa extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblClientes;
-    private javax.swing.JTextField txtCliEmail;
-    private javax.swing.JTextField txtCliEndereco;
-    private javax.swing.JTextField txtCliFone;
-    private javax.swing.JTextField txtCliId;
-    private javax.swing.JTextField txtCliNome;
-    private javax.swing.JTextField txtCliPesquisar;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -195,7 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void MenCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadCliActionPerformed
         // chamando a tela cliente
-        TelaPessoa Cliente = new TelaPessoa();
+        TelaCliente Cliente = new TelaCliente();
         Cliente.setVisible(true);
         Desktop.add(Cliente);
     }//GEN-LAST:event_MenCadCliActionPerformed
@@ -224,8 +224,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenCadUsuActionPerformed
 
     private void MenCadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadOsActionPerformed
-        // Chamando TelaOS
-        TelaOS os=new TelaOS();
+        // Chamando TelaOrdemServico
+        TelaOrdemServico os=new TelaOrdemServico();
         os.setVisible(true);
         Desktop.add(os);
     }//GEN-LAST:event_MenCadOsActionPerformed

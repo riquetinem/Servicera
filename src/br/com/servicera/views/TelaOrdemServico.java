@@ -10,7 +10,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-public class TelaOS extends javax.swing.JInternalFrame {
+public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
@@ -18,7 +18,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
     private String tipo;
 
-    public TelaOS() {
+    public TelaOrdemServico() {
         initComponents();
         conexao = ConnectionFactory.getConnection();
         
@@ -50,7 +50,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
     }
 
     private void pesquisarClientes() {
-        String sql = "Select id as ID,dataos as Emissão,tipo as Tipo,situacao as Situação,equipamento as Equipamento,defeito as Defeitos,servico as Serviço,tecnico as Técnico,valor as Valor from tbos where equipamento like?";
+        String sql = "Select id as ID,dataos as Emissão,tipo as Tipo,situacao as Situação,equipamento as Equipamento,defeito as Defeitos,servico as Serviço,tecnico as Técnico,valor as Valor from ordem_servicos where equipamento like?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCliPesquisar.getText() + "%");
@@ -70,7 +70,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
     } 
 
     private void emitirOs() {
-        String sql = "insert into tbos(tipo,situacao,equipamento,defeito,servico,tecnico,valor,idcli) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into ordem_servicos(tipo,situacao,equipamento,defeito,servico,tecnico,valor,idcli) values (?,?,?,?,?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, tipo);
@@ -99,7 +99,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
 
   /* private void pesquisarOs() {
     String num_os = JOptionPane.showInputDialog("Numero da OS");
-        String sql = "select * from tbos where id = ";
+        String sql = "select * from ordem_servicos where id = ";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -138,7 +138,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
     }*/
 
     private void alterarOs() {
-        String sql = "update tbos set tipo = ?,situacao = ?, equipamento = ?, defeito = ?, servico = ?,tecnico = ?,valor = ? where id = ?";
+        String sql = "update ordem_servicos set tipo = ?,situacao = ?, equipamento = ?, defeito = ?, servico = ?,tecnico = ?,valor = ? where id = ?";
 
         try {
             pst = conexao.prepareStatement(sql);
@@ -178,7 +178,7 @@ public class TelaOS extends javax.swing.JInternalFrame {
     private void excluirOs() {
         int Confirma_os = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir essa Ordem de serviço?", "ATENÇÃO!!!", JOptionPane.YES_NO_OPTION);
         if (Confirma_os == JOptionPane.YES_OPTION) {
-            String sql = "delete from tbos where id = ?";
+            String sql = "delete from ordem_servicos where id = ?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, txtNumeroOs.getText());
