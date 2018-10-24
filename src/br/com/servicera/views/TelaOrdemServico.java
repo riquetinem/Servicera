@@ -2,6 +2,7 @@ package br.com.servicera.views;
 
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
+import br.com.servicera.dao.OrdemServicoDao;
 import br.com.servicera.dao.UsuariosDao;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -28,8 +29,8 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
         }
 
-        UsuariosDao cmb = new UsuariosDao();
-        cmb.populaComboBox(cmbTecnico);
+        OrdemServicoDao ordemServico = new OrdemServicoDao();
+        ordemServico.populaComboBoxTecnicos(cmbTecnico);
         
         pesquisarClientes();
     }
@@ -39,7 +40,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         txtOsDef.setText("");
         txtOsEquip.setText("");
         txtOsVal.setText("");
-        cmbTecnico.setSelectedIndex(1);
+        cmbTecnico.setSelectedIndex(0);
         txtOsServ.setText("");
         txtNumeroOs.setText("");
         txtDataOs.setText("");

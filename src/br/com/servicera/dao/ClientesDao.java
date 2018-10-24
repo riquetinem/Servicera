@@ -11,7 +11,7 @@ import net.proteanit.sql.DbUtils;
 
 public class ClientesDao {
 
-    public static boolean adicionarCliente(Clientes cliente) throws SQLException {
+    public boolean adicionarCliente(Clientes cliente) throws SQLException {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -50,7 +50,7 @@ public class ClientesDao {
 
     }
 
-    public static boolean alterarCliente(Clientes cliente) {
+    public boolean alterarCliente(Clientes cliente) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -96,7 +96,7 @@ public class ClientesDao {
         }
     }
 
-    public static boolean removeClientes(String id) {
+    public boolean removeClientes(String id) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -110,16 +110,16 @@ public class ClientesDao {
                 int apagado = pst.executeUpdate();
                 if (apagado > 0) {
                     JOptionPane.showMessageDialog(null, "Cliente removido com sucesso");
-                    
+
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Ocorreu um erro ao excluir o cliente!");
-                    
+
                     return false;
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
-                
+
                 return false;
             }
         } else {
@@ -127,7 +127,7 @@ public class ClientesDao {
         }
     }
 
-    public static void pesquisarClientes(String nome, JTable tblClientes) {
+    public void pesquisarClientes(String nome, JTable tblClientes) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;

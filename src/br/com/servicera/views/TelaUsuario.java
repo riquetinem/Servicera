@@ -32,6 +32,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         txtNome.setText("");
         txtTelefone.setText("");
         txtLogin.setText("");
+        cmbPerfil.setSelectedIndex(0);
         txtSenha.setText("");
         txtConfirmSenha.setText("");
         btnCreate.setEnabled(true);

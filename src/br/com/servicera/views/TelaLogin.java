@@ -7,24 +7,22 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
-public class TelaLogin extends javax.swing.JFrame{
+public class TelaLogin extends javax.swing.JFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    
-    private void logar() throws SQLException{
-        
-        
-        
+
+    private void logar() throws SQLException {
+
         String user = txtusuario.getText();
         String senha = txtsenha.getText();
         UsuariosDao dao = new UsuariosDao();
         boolean login;
-        
-        try{
+
+        try {
             login = dao.realizaLogin(user, senha);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
 
@@ -33,7 +31,7 @@ public class TelaLogin extends javax.swing.JFrame{
         }
     }
 
-    public TelaLogin(){
+    public TelaLogin() {
         initComponents();
         conexao = ConnectionFactory.getConnection();
         if (conexao != null) {
@@ -44,7 +42,6 @@ public class TelaLogin extends javax.swing.JFrame{
 
         getRootPane().setDefaultButton(btnLogin);
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -208,11 +205,11 @@ public class TelaLogin extends javax.swing.JFrame{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        try{
+        try {
             logar();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -222,25 +219,25 @@ public class TelaLogin extends javax.swing.JFrame{
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
-        btnLogin.setBackground(new Color(235,235,235));
-        btnLogin.setForeground(new Color(0 , 106 , 220));
+        btnLogin.setBackground(new Color(235, 235, 235));
+        btnLogin.setForeground(new Color(0, 106, 220));
     }//GEN-LAST:event_btnLoginMouseEntered
 
     private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
-        btnSair.setBackground(new Color(235,235,235));
-        btnSair.setForeground(new Color(217 , 81, 51));
+        btnSair.setBackground(new Color(235, 235, 235));
+        btnSair.setForeground(new Color(217, 81, 51));
     }//GEN-LAST:event_btnSairMouseEntered
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
-        btnLogin.setBackground(new Color(0, 106 , 220));
+        btnLogin.setBackground(new Color(0, 106, 220));
         btnLogin.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnLoginMouseExited
 
     private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
-        btnSair.setBackground(new Color(217 , 81, 51));
+        btnSair.setBackground(new Color(217, 81, 51));
         btnSair.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnSairMouseExited
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

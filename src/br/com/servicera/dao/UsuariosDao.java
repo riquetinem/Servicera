@@ -14,7 +14,7 @@ import net.proteanit.sql.DbUtils;
 
 public class UsuariosDao {
 
-    public static boolean realizaLogin(String user, String senha) throws SQLException, Exception {
+    public boolean realizaLogin(String user, String senha) throws SQLException, Exception {
         String sql = "select * from usuarios where login = ? and senha = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -58,11 +58,11 @@ public class UsuariosDao {
     }
 
     public void populaComboBox(JComboBox cmbPerfil) {
-        String sql = "select * from perfil";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
 
+        String sql = "select * from perfil";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -75,7 +75,7 @@ public class UsuariosDao {
         }
     }
 
-    public static boolean adicionarUsuario(Usuarios usuario, String confSenha) throws SQLException, Exception {
+    public boolean adicionarUsuario(Usuarios usuario, String confSenha) throws SQLException, Exception {
         boolean correto = usuario.verificaSenha(confSenha);
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -121,7 +121,7 @@ public class UsuariosDao {
 
     }
 
-    public static void pesquisarUsuario(String nome, JTable tblUsuarios) throws SQLException, Exception {
+    public void pesquisarUsuario(String nome, JTable tblUsuarios) throws SQLException, Exception {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -139,7 +139,7 @@ public class UsuariosDao {
         }
     }
 
-    public static boolean alteraUsuario(Usuarios usuario, String confSenha) {
+    public boolean alteraUsuario(Usuarios usuario, String confSenha) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -202,7 +202,7 @@ public class UsuariosDao {
         }
     }
 
-    public static boolean removeUsuario(String id) throws SQLException, Exception {
+    public boolean removeUsuario(String id) throws SQLException, Exception {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
