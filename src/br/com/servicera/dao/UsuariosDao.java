@@ -3,7 +3,6 @@ package br.com.servicera.dao;
 import br.com.servicera.model.Usuarios;
 import br.com.servicera.util.Criptografia;
 import br.com.servicera.views.TelaPrincipal;
-import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,12 +42,9 @@ public class UsuariosDao {
                 principal.setVisible(true);
                 TelaPrincipal.MenRel.setEnabled(true);
                 TelaPrincipal.MenCadUsu.setEnabled(true);
-                //TelaPrincipal.lblUsuario.setText(rs.getString(2));
-                //TelaPrincipal.lblUsuario.setForeground(Color.blue);
             } else {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
-                //principal.lblUsuario.setText(rs.getString(2));
             }
 
             conexao.close();
@@ -206,13 +202,13 @@ public class UsuariosDao {
         }
     }
 
-    public static boolean removeUsuario(String id) throws SQLException, Exception{
+    public static boolean removeUsuario(String id) throws SQLException, Exception {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        
+
         int confirma = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover esse usuario?", "Atenção!!", JOptionPane.YES_NO_OPTION);
-        
+
         if (confirma == JOptionPane.YES_OPTION) {
             String sql = "DELETE FROM usuarios WHERE id = ?";
             try {
@@ -224,7 +220,7 @@ public class UsuariosDao {
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Ocorreu um erro ao remover o usuário!");
-                    
+
                     return false;
                 }
             } catch (Exception e) {
