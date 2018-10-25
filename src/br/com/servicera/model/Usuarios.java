@@ -1,5 +1,8 @@
 package br.com.servicera.model;
 
+import br.com.servicera.dao.UsuariosDao;
+import java.sql.SQLException;
+
 public class Usuarios {
 
     private String id;
@@ -24,6 +27,11 @@ public class Usuarios {
         setLogin(login);
         setSenha(senha);
         setPerfil(perfil);
+    }
+    
+    public Usuarios(String login, String senha){
+        setLogin(login);
+        setSenha(senha);
     }
 
     public String getId() {
@@ -81,5 +89,6 @@ public class Usuarios {
             return false;
         }
     }
+
 
 }

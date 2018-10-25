@@ -3,9 +3,8 @@ package br.com.servicera.views;
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.UsuariosDao;
+import br.com.servicera.model.Usuarios;
 import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -14,21 +13,26 @@ public class TelaLogin extends javax.swing.JFrame {
     ResultSet rs = null;
 
     private void logar() throws SQLException {
+        boolean logou = false;
 
-        String user = txtusuario.getText();
-        String senha = txtsenha.getText();
+        String user = txtUsuario.getText();
+        String senha = psfSenha.getText();
+
         UsuariosDao dao = new UsuariosDao();
-        boolean login;
 
         try {
-            login = dao.realizaLogin(user, senha);
+            logou = dao.realizaLogin(user, senha);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
 
-        if (login) {
+        if (logou) {
             this.dispose();
+        } else {
+            txtUsuario.requestFocus();
+
         }
+
     }
 
     public TelaLogin() {
@@ -54,8 +58,8 @@ public class TelaLogin extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         lblsenha = new javax.swing.JLabel();
-        txtusuario = new javax.swing.JTextField();
-        txtsenha = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        psfSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         lbllogin = new javax.swing.JLabel();
 
@@ -147,11 +151,11 @@ public class TelaLogin extends javax.swing.JFrame {
         lblsenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/senha login.png"))); // NOI18N
         lblsenha.setToolTipText("Senha");
 
-        txtusuario.setToolTipText("Insira seu usuário aqui");
-        txtusuario.setPreferredSize(new java.awt.Dimension(350, 30));
+        txtUsuario.setToolTipText("Insira seu usuário aqui");
+        txtUsuario.setPreferredSize(new java.awt.Dimension(350, 30));
 
-        txtsenha.setToolTipText("Insira sua senha aqui");
-        txtsenha.setPreferredSize(new java.awt.Dimension(350, 30));
+        psfSenha.setToolTipText("Insira sua senha aqui");
+        psfSenha.setPreferredSize(new java.awt.Dimension(350, 30));
 
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -181,8 +185,8 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(lblsenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtsenha, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(txtusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(psfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jpItensLayout.setVerticalGroup(
@@ -192,11 +196,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbllogin))
                 .addGap(12, 12, 12)
                 .addGroup(jpItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(psfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblsenha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
@@ -307,8 +311,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblsenha;
     private javax.swing.JLabel lblservicera;
     private javax.swing.JLabel lblstatus;
-    private javax.swing.JPasswordField txtsenha;
-    private javax.swing.JTextField txtusuario;
+    private javax.swing.JPasswordField psfSenha;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
 }
