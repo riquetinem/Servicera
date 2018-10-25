@@ -76,7 +76,9 @@ public class UsuariosDao {
     }
 
     public boolean adicionarUsuario(Usuarios usuario, String confSenha) throws SQLException, Exception {
+        // TA ERRADO ISSO AQUI 
         boolean correto = usuario.verificaSenha(confSenha);
+        // AAA
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;

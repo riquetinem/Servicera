@@ -5,10 +5,9 @@
         <group>
             <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/util/Criptografia.java</file>
             <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/dao/UsuariosDao.java</file>
-            <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/dao/ClientesDao.java</file>
             <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/views/TelaOrdemServico.java</file>
             <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/dao/OrdemServicoDao.java</file>
-            <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/views/TelaUsuario.java</file>
+            <file>file:/C:/Users/henri/Documents/NetBeansProjects/Servicera/src/br/com/servicera/views/TelaPrincipal.java</file>
         </group>
     </open-files>
 </project-private>

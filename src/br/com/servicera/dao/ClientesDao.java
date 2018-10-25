@@ -132,7 +132,7 @@ public class ClientesDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "Select id as ID,nome as Nome,fone as Telefone,email as Email from clientes where nome like?";
+        String sql = "Select id as ID,nome as Nome,fone as Telefone,endereco as Endereço,email as Email from clientes where nome like?";
 
         try {
             pst = conexao.prepareStatement(sql);

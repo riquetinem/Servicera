@@ -60,16 +60,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu = new javax.swing.JMenuBar();
         menCad = new javax.swing.JMenu();
         MenCadCli = new javax.swing.JMenuItem();
-        MenCadOs = new javax.swing.JMenuItem();
         MenCadUsu = new javax.swing.JMenuItem();
+        menOS = new javax.swing.JMenu();
         MenRel = new javax.swing.JMenu();
         MenRelSer = new javax.swing.JMenuItem();
         menRelCli = new javax.swing.JMenuItem();
-        MenOpc = new javax.swing.JMenu();
-        MenOpcSai = new javax.swing.JMenuItem();
+        menSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Servicera - Controle de Ordem de Serviço");
+        setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -77,7 +77,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        Desktop.setBackground(new java.awt.Color(204, 255, 204));
+        Desktop.setBackground(new java.awt.Color(69, 69, 69));
         Desktop.setBorder(new javax.swing.border.MatteBorder(null));
         Desktop.setForeground(new java.awt.Color(255, 255, 153));
         Desktop.setPreferredSize(new java.awt.Dimension(1050, 600));
@@ -94,27 +94,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         menCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/register.png"))); // NOI18N
-        menCad.setText("Cadastro");
+        menCad.setText("Pessoas");
 
         MenCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         MenCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Cliente.png"))); // NOI18N
-        MenCadCli.setText("Pessoas");
+        MenCadCli.setText("Clientes");
         MenCadCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenCadCliActionPerformed(evt);
             }
         });
         menCad.add(MenCadCli);
-
-        MenCadOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/OS.png"))); // NOI18N
-        MenCadOs.setText("OS");
-        MenCadOs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenCadOsActionPerformed(evt);
-            }
-        });
-        menCad.add(MenCadOs);
 
         MenCadUsu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         MenCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Usuario.png"))); // NOI18N
@@ -128,6 +118,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menCad.add(MenCadUsu);
 
         Menu.add(menCad);
+
+        menOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/OS.png"))); // NOI18N
+        menOS.setText("Ordem de Serviço");
+        menOS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menOSMouseClicked(evt);
+            }
+        });
+        Menu.add(menOS);
 
         MenRel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/relatorio.png"))); // NOI18N
         MenRel.setText("Relatorio");
@@ -155,20 +154,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(MenRel);
 
-        MenOpc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/engrenagem.png"))); // NOI18N
-        MenOpc.setText("Opções");
-
-        MenOpcSai.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        MenOpcSai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Sair.png"))); // NOI18N
-        MenOpcSai.setText("Sair");
-        MenOpcSai.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenOpcSaiActionPerformed(evt);
+        menSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Sair.png"))); // NOI18N
+        menSair.setText("Sair");
+        menSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menSairMouseClicked(evt);
             }
         });
-        MenOpc.add(MenOpcSai);
-
-        Menu.add(MenOpc);
+        Menu.add(menSair);
 
         setJMenuBar(Menu);
 
@@ -189,16 +182,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1078, 690));
+        setSize(new java.awt.Dimension(1062, 651));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MenCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadCliActionPerformed
-        // chamando a tela cliente
-        TelaCliente Cliente = new TelaCliente();
-        Cliente.setVisible(true);
-        Desktop.add(Cliente);
-    }//GEN-LAST:event_MenCadCliActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // As linhas abaixo substituem a label data lbldata pela data atual do sistema ao inicializar o form
@@ -207,28 +193,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //lbldata.setText(formatador.format(data));
 
     }//GEN-LAST:event_formWindowActivated
-
-    private void MenOpcSaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenOpcSaiActionPerformed
-        // exibe uma caixa de dialogo perguntando se deseja sair ou não.
-        int sair = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja sair ?", "Atenção!",JOptionPane.YES_NO_OPTION);
-        if (sair == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }    
-    }//GEN-LAST:event_MenOpcSaiActionPerformed
-
-    private void MenCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadUsuActionPerformed
-        // As linhas abaixo elas irão abrir o form TelaUsuario, dentro do Desktop Panel
-        TelaUsuario usuario = new TelaUsuario(); //Criando uma instancia dessa classe para ser aberta
-        usuario.setVisible(true); //Utilizando a instancia para tornar visivel.
-        Desktop.add(usuario); //estamos adicionando a instancia para ser aberto em Desktop panel
-    }//GEN-LAST:event_MenCadUsuActionPerformed
-
-    private void MenCadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadOsActionPerformed
-        // Chamando TelaOrdemServico
-        TelaOrdemServico os=new TelaOrdemServico();
-        os.setVisible(true);
-        Desktop.add(os);
-    }//GEN-LAST:event_MenCadOsActionPerformed
 
     private void menRelCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menRelCliActionPerformed
         // gerando um relatorio de clientes
@@ -240,6 +204,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // gerando um relatorio de Ordem de Serviço
         rel_OS();
     }//GEN-LAST:event_MenRelSerActionPerformed
+
+    private void menSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menSairMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_menSairMouseClicked
+
+    private void menOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menOSMouseClicked
+        TelaOrdemServico os=new TelaOrdemServico();
+        os.setVisible(true);
+        Desktop.add(os);
+    }//GEN-LAST:event_menOSMouseClicked
+
+    private void MenCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadUsuActionPerformed
+        // As linhas abaixo elas irão abrir o form TelaUsuario, dentro do Desktop Panel
+        TelaUsuario usuario = new TelaUsuario(); //Criando uma instancia dessa classe para ser aberta
+        usuario.setVisible(true); //Utilizando a instancia para tornar visivel.
+        Desktop.add(usuario); //estamos adicionando a instancia para ser aberto em Desktop panel
+    }//GEN-LAST:event_MenCadUsuActionPerformed
+
+    private void MenCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenCadCliActionPerformed
+        // chamando a tela cliente
+        TelaCliente Cliente = new TelaCliente();
+        Cliente.setVisible(true);
+        Desktop.add(Cliente);
+    }//GEN-LAST:event_MenCadCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,14 +267,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
     private javax.swing.JMenuItem MenCadCli;
-    private javax.swing.JMenuItem MenCadOs;
     public static javax.swing.JMenuItem MenCadUsu;
-    private javax.swing.JMenu MenOpc;
-    private javax.swing.JMenuItem MenOpcSai;
     public static javax.swing.JMenu MenRel;
     private javax.swing.JMenuItem MenRelSer;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenu menCad;
+    public static javax.swing.JMenu menOS;
     private javax.swing.JMenuItem menRelCli;
+    private javax.swing.JMenu menSair;
     // End of variables declaration//GEN-END:variables
 }

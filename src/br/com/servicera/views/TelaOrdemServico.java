@@ -3,7 +3,6 @@ package br.com.servicera.views;
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.OrdemServicoDao;
-import br.com.servicera.dao.UsuariosDao;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
