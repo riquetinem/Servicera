@@ -4,6 +4,7 @@ import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.UsuariosDao;
 import br.com.servicera.model.Usuarios;
+import br.com.servicera.util.Formatacao;
 
 public class TelaUsuario extends javax.swing.JInternalFrame {
 
@@ -17,6 +18,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         conexao = ConnectionFactory.getConnection();
 
         txtNome.requestFocus();
+        
+        Formatacao format = new Formatacao();
+
+        jffTelefone.setFormatterFactory(format.fone());
 
         try {
             pesquisarUsuario();
@@ -30,7 +35,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
     private void limpar() {
         txtNome.setText("");
-        txtTelefone.setText("");
+        jffTelefone.setText("");
         txtLogin.setText("");
         cmbPerfil.setSelectedIndex(0);
         txtSenha.setText("");
@@ -43,7 +48,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         UsuariosDao dao = new UsuariosDao();
 
-        Usuarios usuario = new Usuarios(txtNome.getText(), txtTelefone.getText(), txtLogin.getText(), txtSenha.getText(), cmbPerfil.getSelectedItem().toString());
+        Usuarios usuario = new Usuarios(txtNome.getText(), jffTelefone.getText(), txtLogin.getText(), txtSenha.getText(), cmbPerfil.getSelectedItem().toString());
 
         try {
             cadastrou = dao.adicionarUsuario(usuario, txtConfirmSenha.getText());
@@ -71,7 +76,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         int setar = tblUsuarios.getSelectedRow();
         id = tblUsuarios.getModel().getValueAt(setar, 0).toString();
         txtNome.setText(tblUsuarios.getModel().getValueAt(setar, 1).toString());
-        txtTelefone.setText(tblUsuarios.getModel().getValueAt(setar, 2).toString());
+        jffTelefone.setText(tblUsuarios.getModel().getValueAt(setar, 2).toString());
         txtLogin.setText(tblUsuarios.getModel().getValueAt(setar, 3).toString());
         cmbPerfil.setSelectedItem(tblUsuarios.getModel().getValueAt(setar, 4).toString());
         btnCreate.setEnabled(false);
@@ -82,7 +87,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         UsuariosDao dao = new UsuariosDao();
 
-        Usuarios usuario = new Usuarios(id, txtNome.getText(), txtTelefone.getText(), txtLogin.getText(), txtSenha.getText(), cmbPerfil.getSelectedItem().toString());
+        Usuarios usuario = new Usuarios(id, txtNome.getText(), jffTelefone.getText(), txtLogin.getText(), txtSenha.getText(), cmbPerfil.getSelectedItem().toString());
 
         try {
             alterou = dao.alteraUsuario(usuario, txtConfirmSenha.getText());
@@ -119,26 +124,26 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblusunome = new javax.swing.JLabel();
+        lbllogin = new javax.swing.JLabel();
+        lblsenha = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblperfil = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
         cmbPerfil = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
+        lbltel = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsu = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
+        lblpesquisar = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblconfisenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         txtConfirmSenha = new javax.swing.JPasswordField();
+        jffTelefone = new javax.swing.JFormattedTextField();
 
         jLabel9.setText("ID do Cliente: ");
 
@@ -150,17 +155,17 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setTitle("Servicera - Usuários");
         setPreferredSize(new java.awt.Dimension(640, 480));
 
-        jLabel2.setText("Nome* :");
+        lblusunome.setText("Nome* :");
 
-        jLabel3.setText("Login*: ");
+        lbllogin.setText("Login*: ");
 
-        jLabel4.setText("Senha*: ");
+        lblsenha.setText("Senha*: ");
 
-        jLabel5.setText("Perfil* :");
+        lblperfil.setText("Perfil* :");
 
-        jLabel6.setText("Telefone* :");
+        lbltel.setText("Telefone* :");
 
-        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Create.png"))); // NOI18N
+        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Create.png"))); // NOI18N
         btnCreate.setToolTipText("Adicionar");
         btnCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCreate.setPreferredSize(new java.awt.Dimension(120, 80));
@@ -170,7 +175,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Delete.png"))); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Delete.png"))); // NOI18N
         btnDelete.setToolTipText("Deletar");
         btnDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDelete.setPreferredSize(new java.awt.Dimension(120, 80));
@@ -180,7 +185,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Update.png"))); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Update.png"))); // NOI18N
         btnUpdate.setToolTipText("Atualizar");
         btnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUpdate.setPreferredSize(new java.awt.Dimension(120, 80));
@@ -190,7 +195,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Limpar.png"))); // NOI18N
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Limpar.png"))); // NOI18N
         btnLimpar.setToolTipText("Limpar Campos");
         btnLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +233,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 tblUsuariosKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(tblUsuarios);
+        tblUsu.setViewportView(tblUsuarios);
         if (tblUsuarios.getColumnModel().getColumnCount() > 0) {
             tblUsuarios.getColumnModel().getColumn(0).setResizable(false);
             tblUsuarios.getColumnModel().getColumn(2).setResizable(false);
@@ -236,7 +241,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             tblUsuarios.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/lupa.png"))); // NOI18N
+        lblpesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/lupa.png"))); // NOI18N
 
         txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -244,7 +249,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Conf. Senha*: ");
+        lblconfisenha.setText("Conf. Senha*: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,22 +263,22 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
+                                .addComponent(lblpesquisar)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(tblUsu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
+                                    .addComponent(lbltel)
+                                    .addComponent(lblusunome)
+                                    .addComponent(lblperfil))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cmbPerfil, 0, 206, Short.MAX_VALUE)
                                     .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                    .addComponent(txtTelefone)))
+                                    .addComponent(jffTelefone)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -281,17 +286,18 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                                 .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                        .addGap(219, 219, 219)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
+                            .addComponent(lbllogin)
+                            .addComponent(lblsenha)
+                            .addComponent(lblconfisenha))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(txtLogin)
                             .addComponent(txtSenha)
                             .addComponent(txtConfirmSenha)
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(179, 179, 179)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -300,45 +306,49 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(jLabel8))
+                        .addComponent(lblpesquisar))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addComponent(tblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                            .addComponent(lblusunome)
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbltel)
+                            .addComponent(jffTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(cmbPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLimpar)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lblperfil)
+                            .addComponent(cmbPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
+                            .addComponent(lbllogin)
                             .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(lblsenha)
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(lblconfisenha)
                             .addComponent(txtConfirmSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(34, 34, 34))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLimpar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         setBounds(0, 0, 1050, 600);
@@ -398,22 +408,22 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbPerfil;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JFormattedTextField jffTelefone;
+    private javax.swing.JLabel lblconfisenha;
+    private javax.swing.JLabel lbllogin;
+    private javax.swing.JLabel lblperfil;
+    private javax.swing.JLabel lblpesquisar;
+    private javax.swing.JLabel lblsenha;
+    private javax.swing.JLabel lbltel;
+    private javax.swing.JLabel lblusunome;
+    private javax.swing.JScrollPane tblUsu;
     private javax.swing.JTable tblUsuarios;
     private javax.swing.JPasswordField txtConfirmSenha;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPesquisar;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

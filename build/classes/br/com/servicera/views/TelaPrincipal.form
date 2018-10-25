@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="menCad">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br.com.servicera.icones/register.png"/>
+              <Image iconType="3" name="/br/com/servicera/icones/pessoas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pessoas"/>
           </Properties>
@@ -18,7 +18,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br.com.servicera.icones/Cliente.png"/>
+                  <Image iconType="3" name="/br/com/servicera/icones/Cliente.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
@@ -32,7 +32,7 @@
                   <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br.com.servicera.icones/Usuario.png"/>
+                  <Image iconType="3" name="/br/com/servicera/icones/usuarios.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuarios"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -49,7 +49,7 @@
         <Menu class="javax.swing.JMenu" name="menOS">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br.com.servicera.icones/OS.png"/>
+              <Image iconType="3" name="/br/com/servicera/icones/os.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ordem de Servi&#xe7;o"/>
           </Properties>
@@ -63,7 +63,7 @@
         <Menu class="javax.swing.JMenu" name="MenRel">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br.com.servicera.icones/relatorio.png"/>
+              <Image iconType="3" name="/br/com/servicera/icones/relat&#xf3;rio.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Relatorio"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -78,7 +78,7 @@
                   <KeyStroke key="Alt+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br.com.servicera.icones/Relat&#xf3;rio OS.png"/>
+                  <Image iconType="3" name="/br/com/servicera/icones/Relat&#xf3;rio OS.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Relatorio de Servi&#xe7;os"/>
               </Properties>
@@ -92,7 +92,7 @@
                   <KeyStroke key="Alt+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/br.com.servicera.icones/Relat&#xf3;rio Cli.png"/>
+                  <Image iconType="3" name="/br/com/servicera/icones/Relat&#xf3;rio Cli.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Clientes"/>
               </Properties>
@@ -105,7 +105,7 @@
         <Menu class="javax.swing.JMenu" name="menSair">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br.com.servicera.icones/Sair.png"/>
+              <Image iconType="3" name="/br/com/servicera/icones/Sair.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>

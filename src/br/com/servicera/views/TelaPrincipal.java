@@ -93,11 +93,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 598, Short.MAX_VALUE)
         );
 
-        menCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/register.png"))); // NOI18N
+        menCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/pessoas.png"))); // NOI18N
         menCad.setText("Pessoas");
 
         MenCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Cliente.png"))); // NOI18N
+        MenCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Cliente.png"))); // NOI18N
         MenCadCli.setText("Clientes");
         MenCadCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menCad.add(MenCadCli);
 
         MenCadUsu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Usuario.png"))); // NOI18N
+        MenCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/usuarios.png"))); // NOI18N
         MenCadUsu.setText("Usuarios");
         MenCadUsu.setEnabled(false);
         MenCadUsu.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(menCad);
 
-        menOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/OS.png"))); // NOI18N
+        menOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/os.png"))); // NOI18N
         menOS.setText("Ordem de Serviço");
         menOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,12 +128,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         Menu.add(menOS);
 
-        MenRel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/relatorio.png"))); // NOI18N
+        MenRel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/relatório.png"))); // NOI18N
         MenRel.setText("Relatorio");
         MenRel.setEnabled(false);
 
         MenRelSer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
-        MenRelSer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Relatório OS.png"))); // NOI18N
+        MenRelSer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Relatório OS.png"))); // NOI18N
         MenRelSer.setText("Relatorio de Serviços");
         MenRelSer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenRel.add(MenRelSer);
 
         menRelCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Relatório Cli.png"))); // NOI18N
+        menRelCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Relatório Cli.png"))); // NOI18N
         menRelCli.setText("Relatório de Clientes");
         menRelCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +154,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(MenRel);
 
-        menSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br.com.servicera.icones/Sair.png"))); // NOI18N
+        menSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Sair.png"))); // NOI18N
         menSair.setText("Sair");
         menSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

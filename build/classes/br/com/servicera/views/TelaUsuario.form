@@ -52,26 +52,26 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="txtPesquisar" min="-2" pref="182" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblpesquisar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" alignment="1" pref="1026" max="32767" attributes="0"/>
+                          <Component id="tblUsu" alignment="1" pref="1026" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbltel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblusunome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblperfil" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cmbPerfil" pref="206" max="32767" attributes="0"/>
                                   <Component id="txtNome" pref="206" max="32767" attributes="0"/>
-                                  <Component id="txtTelefone" max="32767" attributes="0"/>
+                                  <Component id="jffTelefone" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -83,19 +83,20 @@
                               <Component id="btnUpdate" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="274" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbllogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblsenha" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblconfisenha" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtLogin" pref="144" max="32767" attributes="0"/>
+                          <Component id="txtLogin" max="32767" attributes="0"/>
                           <Component id="txtSenha" max="32767" attributes="0"/>
                           <Component id="txtConfirmSenha" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnLimpar" max="32767" attributes="0"/>
+                          <Component id="btnLimpar" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -108,7 +109,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblpesquisar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -116,73 +117,80 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="265" max="32767" attributes="0"/>
+              <Component id="tblUsu" pref="265" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblusunome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbltel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jffTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblperfil" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmbPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnDelete" max="32767" attributes="0"/>
-                          <Component id="btnCreate" max="32767" attributes="0"/>
-                          <Component id="btnLimpar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUpdate" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbllogin" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="txtLogin" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblsenha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblconfisenha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtConfirmSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnDelete" pref="81" max="32767" attributes="0"/>
+                          <Component id="btnCreate" max="32767" attributes="0"/>
+                          <Component id="btnUpdate" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblusunome">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome* :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lbllogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login*: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="lblsenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha*: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="lblperfil">
       <Properties>
         <Property name="text" type="java.lang.String" value="Perfil* :"/>
       </Properties>
@@ -199,17 +207,15 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="lbltel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone* :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTelefone">
-    </Component>
     <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br.com.servicera.icones/Create.png"/>
+          <Image iconType="3" name="/br/com/servicera/icones/Create.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Adicionar"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -226,7 +232,7 @@
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br.com.servicera.icones/Delete.png"/>
+          <Image iconType="3" name="/br/com/servicera/icones/Delete.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Deletar"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -243,7 +249,7 @@
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br.com.servicera.icones/Update.png"/>
+          <Image iconType="3" name="/br/com/servicera/icones/Update.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Atualizar"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -260,7 +266,7 @@
     <Component class="javax.swing.JButton" name="btnLimpar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br.com.servicera.icones/Limpar.png"/>
+          <Image iconType="3" name="/br/com/servicera/icones/Limpar.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Limpar Campos"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -271,7 +277,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="tblUsu">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -330,10 +336,10 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="lblpesquisar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br.com.servicera.icones/lupa.png"/>
+          <Image iconType="3" name="/br/com/servicera/icones/lupa.png"/>
         </Property>
       </Properties>
     </Component>
@@ -342,7 +348,7 @@
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesquisarKeyReleased"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblconfisenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Conf. Senha*: "/>
       </Properties>
@@ -350,6 +356,8 @@
     <Component class="javax.swing.JPasswordField" name="txtSenha">
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtConfirmSenha">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jffTelefone">
     </Component>
   </SubComponents>
 </Form>
