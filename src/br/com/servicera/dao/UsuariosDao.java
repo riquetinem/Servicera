@@ -76,15 +76,14 @@ public class UsuariosDao {
     }
 
     public boolean adicionarUsuario(Usuarios usuario, String confSenha) throws SQLException, Exception {
-        // TA ERRADO ISSO AQUI 
         boolean correto = usuario.verificaSenha(confSenha);
-        // AAA
+
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
 
         if (correto) {
-            String sql = "insert into usuarios (nome, fone, login, senha, perfil) values (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO usuarios (nome, fone, login, senha, perfil) values (?, ?, ?, ?, ?)";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, usuario.getNome());
@@ -150,14 +149,14 @@ public class UsuariosDao {
         if (confirma == JOptionPane.YES_OPTION) {
             boolean correto;
 
-            if (!usuario.getSenha().isEmpty()) {
+            if (usuario.getSenha().isEmpty() && confSenha.equals("")) {
                 correto = true;
             } else {
                 correto = usuario.verificaSenha(confSenha);
             }
 
             if (correto) {
-                String sql = "update usuarios set nome = ?,fone = ?, login = ?, senha = ?, perfil = ? where id = ?";
+                String sql = "UPDATE usuarios SET nome = ?,fone = ?, login = ?, senha = ?, perfil = ? WHERE id = ?";
                 try {
                     pst = conexao.prepareStatement(sql);
                     pst.setString(1, usuario.getNome());

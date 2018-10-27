@@ -2,6 +2,7 @@ package br.com.servicera.model;
 
 import br.com.servicera.dao.UsuariosDao;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Usuarios {
 
@@ -82,13 +83,14 @@ public class Usuarios {
         this.perfil = perfil;
     }
 
-    public boolean verificaSenha(String senhaConfirm) {
-        if (this.senha.equals(senhaConfirm)) {
+    public boolean verificaSenha(String confSenha) {
+
+        if (this.getSenha().equals(confSenha)) {
+
             return true;
         } else {
+
             return false;
         }
     }
-
-
 }
