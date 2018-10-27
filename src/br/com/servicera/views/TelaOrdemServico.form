@@ -48,12 +48,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblequip" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtOsEquip" max="32767" attributes="0"/>
+                              <Component id="txtEquipamento" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lbldef" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtOsDef" max="32767" attributes="0"/>
+                              <Component id="txtDefeito" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -61,7 +61,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblserv" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtOsServ" min="-2" pref="192" max="-2" attributes="0"/>
+                              <Component id="txtServico" min="-2" pref="192" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -102,14 +102,14 @@
                               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                               <Component id="lblvt" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtOsVal" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="txtValor" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="JpOS" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -123,16 +123,16 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblserv" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtOsServ" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtServico" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblequip" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtOsEquip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEquipamento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbltec" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbTecnico" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbldef" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtOsDef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDefeito" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -146,7 +146,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblvt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtOsVal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtValor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -194,7 +194,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="txtCliPesquisar" max="32767" attributes="0"/>
+                  <Component id="txtPesquisar" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblpesquisa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
@@ -211,7 +211,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCliPesquisar" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPesquisar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="lblpesquisa" pref="52" max="32767" attributes="0"/>
@@ -232,9 +232,9 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCliPesquisar">
+        <Component class="javax.swing.JTextField" name="txtPesquisar">
           <Events>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCliPesquisarKeyReleased"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPesquisarKeyReleased"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -247,19 +247,50 @@
             <Component class="javax.swing.JTable" name="tblOrdemServico">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="4">
-                    <Column editable="true" title="ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Emiss&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Situa&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Equipamentos" type="java.lang.Object"/>
-                    <Column editable="true" title="Defeitos" type="java.lang.Object"/>
-                    <Column editable="true" title="Servi&#xe7;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Valor" type="java.lang.Object"/>
+                  <Table columnCount="9" rowCount="4">
+                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Cliente" type="java.lang.Object"/>
+                    <Column editable="false" title="Emiss&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Tipo" type="java.lang.Object"/>
+                    <Column editable="false" title="Situa&#xe7;&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Equipamentos" type="java.lang.Object"/>
+                    <Column editable="false" title="Defeitos" type="java.lang.Object"/>
+                    <Column editable="false" title="Servi&#xe7;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Valor" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -314,25 +345,13 @@
         <Property name="text" type="java.lang.String" value="Valor Total*:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOsEquip">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtEquipamento">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOsServ">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtServico">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOsVal">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtValor">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOsDef">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtDefeito">
     </Component>
     <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>

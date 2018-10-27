@@ -39,36 +39,44 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
     }
 
     private void limpar() {
-        txtOsDef.setText("");
-        txtOsEquip.setText("");
-        txtOsVal.setText("");
+        txtDefeito.setText("");
+        txtEquipamento.setText("");
+        txtValor.setText("");
         cmbTecnico.setSelectedIndex(0);
-        txtOsServ.setText("");
-        txtCliPesquisar.setEnabled(true);
+        cmbCliente.setSelectedIndex(0);
+        cmbSituacao.setSelectedIndex(0);
+        txtServico.setText("");
+        txtPesquisar.setEnabled(true);
         btnCreate.setEnabled(true);
         tblOrdemServico.setVisible(true);
-        ativar();
     }
 
     private void pesquisarOrdemServico() {
         OrdemServicoDao dao = new OrdemServicoDao();
 
-        dao.pesquisarOrdemServico(txtOsEquip.getText(), tblOrdemServico);
+        dao.pesquisarOrdemServico(txtPesquisar.getText(), tblOrdemServico);
     }
 
     private void setarCampos() {
         int setar = tblOrdemServico.getSelectedRow();
         id = tblOrdemServico.getModel().getValueAt(setar, 0).toString();
-
-        ativar();
-
+        cmbCliente.setSelectedItem(tblOrdemServico.getModel().getValueAt(setar, 1).toString());
+        cmbSituacao.setSelectedItem(tblOrdemServico.getModel().getValueAt(setar, 3).toString());
+        txtEquipamento.setText(tblOrdemServico.getModel().getValueAt(setar, 4).toString());
+        txtDefeito.setText(tblOrdemServico.getModel().getValueAt(setar, 5).toString());
+        txtServico.setText(tblOrdemServico.getModel().getValueAt(setar, 6).toString());
+        cmbTecnico.setSelectedItem(tblOrdemServico.getModel().getValueAt(setar, 7).toString());
+        txtValor.setText(tblOrdemServico.getModel().getValueAt(setar, 8).toString());
     }
 
     private void adiciona() {
         boolean adicionou = false;
 
         OrdemServicoDao dao = new OrdemServicoDao();
-        OrdemServico ordemServico = new OrdemServico(cmbSituacao.getSelectedItem().toString(), txtOsEquip.getText(), txtOsDef.getText(), txtOsServ.getText(), cmbTecnico.getSelectedItem().toString(), txtOsVal.getText(), cmbCliente.getSelectedItem().toString());
+        OrdemServico ordemServico = new OrdemServico(cmbSituacao.getSelectedItem().toString(),
+                txtEquipamento.getText(), txtDefeito.getText(), 
+                txtServico.getText(), cmbTecnico.getSelectedItem().toString(), 
+                txtValor.getText(), cmbCliente.getSelectedItem().toString());
 
         try {
             adicionou = dao.adicionarOrdemServico(ordemServico);
@@ -86,7 +94,10 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         boolean alterou = false;
 
         OrdemServicoDao dao = new OrdemServicoDao();
-        OrdemServico ordemServico = new OrdemServico(id, cmbSituacao.getSelectedItem().toString(), txtOsEquip.getText(), txtOsDef.getText(), txtOsServ.getText(), cmbTecnico.getSelectedItem().toString(), txtOsVal.getText(), cmbCliente.getSelectedItem().toString());
+        OrdemServico ordemServico = new OrdemServico(id, cmbSituacao.getSelectedItem().toString(),
+                txtEquipamento.getText(), txtDefeito.getText(),
+                txtServico.getText(), cmbTecnico.getSelectedItem().toString(), 
+                txtValor.getText(), cmbCliente.getSelectedItem().toString());
 
         try {
             alterou = dao.alteraOrdemServico(ordemServico);
@@ -100,14 +111,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         }
     }
 
-    private void ativar() {
-        txtOsDef.setEnabled(true);
-        txtOsEquip.setEnabled(true);
-        txtOsVal.setEnabled(true);
-        cmbTecnico.setEnabled(true);
-        txtOsServ.setEnabled(true);
-    }
-
     private void excluir() {
         boolean excluiu = false;
 
@@ -118,8 +121,8 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        
-        if (excluiu){
+
+        if (excluiu) {
             limpar();
             pesquisarOrdemServico();
         }
@@ -128,7 +131,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
     private void imprimir() {
         OrdemServicoDao dao = new OrdemServicoDao();
-        
+
         dao.imprimirOrdemServico(id);
     }
 
@@ -141,7 +144,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         cmbSituacao = new javax.swing.JComboBox<>();
         JpOS = new javax.swing.JPanel();
         lblpesquisa = new javax.swing.JLabel();
-        txtCliPesquisar = new javax.swing.JTextField();
+        txtPesquisar = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrdemServico = new javax.swing.JTable();
         lblequip = new javax.swing.JLabel();
@@ -149,10 +152,10 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         lblserv = new javax.swing.JLabel();
         lbltec = new javax.swing.JLabel();
         lblvt = new javax.swing.JLabel();
-        txtOsEquip = new javax.swing.JTextField();
-        txtOsServ = new javax.swing.JTextField();
-        txtOsVal = new javax.swing.JTextField();
-        txtOsDef = new javax.swing.JTextField();
+        txtEquipamento = new javax.swing.JTextField();
+        txtServico = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        txtDefeito = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -192,23 +195,31 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
         lblpesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/lupa.png"))); // NOI18N
 
-        txtCliPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCliPesquisarKeyReleased(evt);
+                txtPesquisarKeyReleased(evt);
             }
         });
 
         tblOrdemServico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Emissão", "Tipo", "Situação", "Equipamentos", "Defeitos", "Serviço", "Valor"
+                "ID", "Cliente", "Emissão", "Tipo", "Situação", "Equipamentos", "Defeitos", "Serviço", "Valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblOrdemServico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblOrdemServicoMouseClicked(evt);
@@ -221,7 +232,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         JpOSLayout.setHorizontalGroup(
             JpOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpOSLayout.createSequentialGroup()
-                .addComponent(txtCliPesquisar)
+                .addComponent(txtPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblpesquisa)
                 .addGap(73, 73, 73))
@@ -235,7 +246,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                 .addGroup(JpOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpOSLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtCliPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpOSLayout.createSequentialGroup()
                         .addComponent(lblpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                         .addGap(4, 4, 4)))
@@ -252,14 +263,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         lbltec.setText("Técnico*:");
 
         lblvt.setText("Valor Total*:");
-
-        txtOsEquip.setEnabled(false);
-
-        txtOsServ.setEnabled(false);
-
-        txtOsVal.setEnabled(false);
-
-        txtOsDef.setEnabled(false);
 
         btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Create.png"))); // NOI18N
         btnCreate.setToolTipText("Adicionar");
@@ -327,17 +330,17 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblequip)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOsEquip))
+                                .addComponent(txtEquipamento))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbldef)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOsDef)))
+                                .addComponent(txtDefeito)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblserv)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOsServ, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtServico, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbltec)
@@ -370,11 +373,11 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                                 .addGap(89, 89, 89)
                                 .addComponent(lblvt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOsVal, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JpOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,15 +387,15 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblserv)
-                    .addComponent(txtOsServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblequip)
-                    .addComponent(txtOsEquip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltec)
                     .addComponent(cmbTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldef)
-                    .addComponent(txtOsDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDefeito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -404,7 +407,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblvt)
-                            .addComponent(txtOsVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCliente)
@@ -439,9 +442,9 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         imprimir();
     }//GEN-LAST:event_btnImprimeActionPerformed
 
-    private void txtCliPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCliPesquisarKeyReleased
+    private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
         pesquisarOrdemServico();
-    }//GEN-LAST:event_txtCliPesquisarKeyReleased
+    }//GEN-LAST:event_txtPesquisarKeyReleased
 
     private void tblOrdemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrdemServicoMouseClicked
         setarCampos();
@@ -473,10 +476,10 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbltec;
     private javax.swing.JLabel lblvt;
     private javax.swing.JTable tblOrdemServico;
-    private javax.swing.JTextField txtCliPesquisar;
-    private javax.swing.JTextField txtOsDef;
-    private javax.swing.JTextField txtOsEquip;
-    private javax.swing.JTextField txtOsServ;
-    private javax.swing.JTextField txtOsVal;
+    private javax.swing.JTextField txtDefeito;
+    private javax.swing.JTextField txtEquipamento;
+    private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JTextField txtServico;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

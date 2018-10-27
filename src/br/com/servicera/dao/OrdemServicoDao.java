@@ -39,7 +39,7 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "select * from situacao";
+        String sql = "SELECT * FROM situacao";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -75,7 +75,7 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "insert into ordem_servicos(situacao,equipamento,defeito,servico,tecnico,valor,idcli) values (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO ordem_servicos(situacao, equipamento, defeito, servico, tecnico, valor, cliente) values (?, ?, ?, ?, ?, ?, ?)";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, ordemServico.getSituacao());
@@ -112,7 +112,9 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "update ordem_servicos set situacao = ?, equipamento = ?, defeito = ?, servico = ?,tecnico = ?,valor = ? where id = ?";
+        String sql = "UPDATE ordem_servicos set situacao = ?, "
+                + "equipamento = ?, defeito = ?, servico = ?, "
+                + "tecnico = ?,valor = ?, cliente = ? where id = ?";
 
         try {
             pst = conexao.prepareStatement(sql);
@@ -122,7 +124,8 @@ public class OrdemServicoDao {
             pst.setString(4, ordemServico.getServico());
             pst.setString(5, ordemServico.getTecnico());
             pst.setString(6, ordemServico.getValor().replace(",", "."));
-            pst.setString(7, ordemServico.getId());
+            pst.setString(7, ordemServico.getCliente());
+            pst.setString(8, ordemServico.getId());
 
             if (((ordemServico.getEquipamento().isEmpty())) || ((ordemServico.getDefeito().isEmpty()))) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
@@ -154,7 +157,7 @@ public class OrdemServicoDao {
 
         int Confirma_os = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir essa Ordem de serviço?", "ATENÇÃO!!!", JOptionPane.YES_NO_OPTION);
         if (Confirma_os == JOptionPane.YES_OPTION) {
-            String sql = "delete from ordem_servicos where id = ?";
+            String sql = "DELETE FROM ordem_servicos WHERE id = ?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, id);
@@ -184,7 +187,9 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "Select id as ID,dataos as Emissão, situacao as Situação,equipamento as Equipamento,defeito as Defeitos,servico as Serviço,tecnico as Técnico,valor as Valor from ordem_servicos where equipamento like ?";
+        String sql = "SELECT id AS ID, cliente AS Cliente, data AS Emissão, situacao AS Situação,equipamento AS Equipamento, "
+                + "defeito AS Defeitos, servico AS Serviço, tecnico AS Técnico, "
+                + "valor AS Valor FROM ordem_servicos WHERE equipamento LIKE ?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, equipamento + "%");
@@ -197,7 +202,7 @@ public class OrdemServicoDao {
 
     public void imprimirOrdemServico(String id) {
         Connection conexao = ConnectionFactory.getConnection();
-        
+
         int confirma = JOptionPane.showConfirmDialog(null, "Confirma a impressão desta Ordem de serviço ?", "ATENÇÃO!!", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION) {
             try {

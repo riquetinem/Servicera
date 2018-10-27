@@ -1,6 +1,7 @@
 package br.com.servicera.model;
 
 public class OrdemServico {
+
     private String id;
     private String data;
     private String situacao;
@@ -32,8 +33,6 @@ public class OrdemServico {
         this.valor = valor;
         this.cliente = cliente;
     }
-    
-    
 
     public String getId() {
         return id;
@@ -106,6 +105,5 @@ public class OrdemServico {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
-    
-    
+
 }
