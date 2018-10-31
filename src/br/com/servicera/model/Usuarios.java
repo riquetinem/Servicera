@@ -1,9 +1,5 @@
 package br.com.servicera.model;
 
-import br.com.servicera.dao.UsuariosDao;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-
 public class Usuarios {
 
     private String id;

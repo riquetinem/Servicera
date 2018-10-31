@@ -5,14 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 
 public class OrdemServicoDao {
 
@@ -21,7 +17,7 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "select * from usuarios WHERE perfil = 'técnico'";
+        String sql = "SELECT * FROM usuarios WHERE perfil = 'técnico'";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -57,7 +53,7 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "select * from clientes";
+        String sql = "SELECT * FROM clientes";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -112,9 +108,9 @@ public class OrdemServicoDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "UPDATE ordem_servicos set situacao = ?, "
+        String sql = "UPDATE ordem_servicos SET situacao = ?, "
                 + "equipamento = ?, defeito = ?, servico = ?, "
-                + "tecnico = ?,valor = ?, cliente = ? where id = ?";
+                + "tecnico = ?,valor = ?, cliente = ? WHERE id = ?";
 
         try {
             pst = conexao.prepareStatement(sql);
@@ -190,6 +186,8 @@ public class OrdemServicoDao {
         String sql = "SELECT id AS ID, cliente AS Cliente, data AS Emissão, situacao AS Situação,equipamento AS Equipamento, "
                 + "defeito AS Defeitos, servico AS Serviço, tecnico AS Técnico, "
                 + "valor AS Valor FROM ordem_servicos WHERE equipamento LIKE ?";
+        
+        
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, equipamento + "%");
@@ -200,20 +198,4 @@ public class OrdemServicoDao {
         }
     }
 
-    public void imprimirOrdemServico(String id) {
-        Connection conexao = ConnectionFactory.getConnection();
-
-        int confirma = JOptionPane.showConfirmDialog(null, "Confirma a impressão desta Ordem de serviço ?", "ATENÇÃO!!", JOptionPane.YES_NO_OPTION);
-        if (confirma == JOptionPane.YES_OPTION) {
-            try {
-                HashMap filtro = new HashMap();
-                filtro.put("os", id);
-                JasperPrint print = JasperFillManager.fillReport("C:\\Users\\gabri\\Desktop\\Servicera\\Prjinfox\\reports\\os.jasper", filtro, conexao); //podemos criar varios parametros e varios reports de vários tipos delcarando a variavel no lugar do null.
-                JasperViewer.viewReport(print, false);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-    }
 }

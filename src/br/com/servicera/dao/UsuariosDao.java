@@ -15,7 +15,7 @@ import net.proteanit.sql.DbUtils;
 public class UsuariosDao {
 
     public boolean realizaLogin(String user, String senha) throws SQLException, Exception {
-        String sql = "select * from usuarios where login = ? and senha = ?";
+        String sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -36,12 +36,10 @@ public class UsuariosDao {
 
         if (rs.next()) {
             String perfil = rs.getString(6);
-
             if (perfil.equals("admin")) {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
-                TelaPrincipal.MenRel.setEnabled(true);
-                TelaPrincipal.MenCadUsu.setEnabled(true);
+                TelaPrincipal.menuUsuarios.setEnabled(true);
             } else {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
@@ -62,7 +60,7 @@ public class UsuariosDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "select * from perfil";
+        String sql = "SELECT * FROM perfil";
         try {
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -127,7 +125,7 @@ public class UsuariosDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "select id as ID,nome as NOME,fone as TELEFONE,login as LOGIN, perfil as PERFIL from usuarios where nome like ?";
+        String sql = "SELECT id AS ID,nome AS NOME,fone AS TELEFONE,login AS LOGIN, perfil as PERFIL FROM usuarios WHERE nome like ?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, nome + "%");

@@ -16,7 +16,7 @@ public class ClientesDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "insert into clientes (nome, endereco, fone, email) values (?,?,?,?)";
+        String sql = "INSERT INTO clientes (nome, endereco, fone, email) values (?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, cliente.getNome());
@@ -57,7 +57,7 @@ public class ClientesDao {
 
         int confirma = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja atualizar este cliente ?", "Atenção!!", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION) {
-            String sql = "update clientes set nome = ?,endereco = ?, fone = ?,email = ? where id = ?";
+            String sql = "UPDATE clientes SET nome = ?,endereco = ?, fone = ?,email = ? WHERE id = ?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, cliente.getNome());
@@ -103,7 +103,7 @@ public class ClientesDao {
 
         int confirma = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover esse cliente ?", "Atenção!!", JOptionPane.YES_NO_OPTION);
         if (confirma == JOptionPane.YES_OPTION) {
-            String sql = "delete from clientes where id =?";
+            String sql = "DELETE FROM clientes WHERE id =?";
             try {
                 pst = conexao.prepareStatement(sql);
                 pst.setString(1, id);
@@ -132,7 +132,7 @@ public class ClientesDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String sql = "Select id as ID,nome as Nome,fone as Telefone,endereco as Endereço,email as Email from clientes where nome like?";
+        String sql = "SELECT id AS ID,nome AS Nome,fone AS Telefone,endereco AS Endereço,email AS Email FROM clientes WHERE nome like?";
 
         try {
             pst = conexao.prepareStatement(sql);

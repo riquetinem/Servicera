@@ -4,12 +4,6 @@ import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.OrdemServicoDao;
 import br.com.servicera.model.OrdemServico;
-import java.util.HashMap;
-import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 
 public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
@@ -129,12 +123,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
     }
 
-    private void imprimir() {
-        OrdemServicoDao dao = new OrdemServicoDao();
-
-        dao.imprimirOrdemServico(id);
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -160,7 +148,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
-        btnImprime = new javax.swing.JButton();
         cmbTecnico = new javax.swing.JComboBox<>();
         lblCliente = new javax.swing.JLabel();
         cmbCliente = new javax.swing.JComboBox<>();
@@ -172,20 +159,20 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         setTitle("Servicera - Ordem de Serviço");
         setPreferredSize(new java.awt.Dimension(700, 500));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
         });
 
@@ -248,9 +235,9 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpOSLayout.createSequentialGroup()
-                        .addComponent(lblpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                        .addComponent(lblpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                         .addGap(4, 4, 4)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -304,16 +291,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
             }
         });
 
-        btnImprime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/servicera/icones/Imprime.png"))); // NOI18N
-        btnImprime.setToolTipText("Imprimir Ordem de Serviço");
-        btnImprime.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprime.setPreferredSize(new java.awt.Dimension(100, 100));
-        btnImprime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimeActionPerformed(evt);
-            }
-        });
-
         cmbTecnico.setToolTipText("");
 
         lblCliente.setText("Cliente*: ");
@@ -355,11 +332,9 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnImprime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
+                                .addGap(217, 217, 217)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(lblCliente)
@@ -370,7 +345,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(cmbSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
+                                .addGap(201, 201, 201)
                                 .addComponent(lblvt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -402,8 +377,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                         .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblvt)
@@ -438,10 +412,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void btnImprimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimeActionPerformed
-        imprimir();
-    }//GEN-LAST:event_btnImprimeActionPerformed
-
     private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
         pesquisarOrdemServico();
     }//GEN-LAST:event_txtPesquisarKeyReleased
@@ -459,7 +429,6 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel JpOS;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnImprime;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;

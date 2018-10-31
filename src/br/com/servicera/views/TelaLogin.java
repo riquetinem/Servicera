@@ -3,7 +3,6 @@ package br.com.servicera.views;
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.UsuariosDao;
-import br.com.servicera.model.Usuarios;
 import java.awt.Color;
 
 public class TelaLogin extends javax.swing.JFrame {

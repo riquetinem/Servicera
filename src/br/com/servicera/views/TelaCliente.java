@@ -5,7 +5,6 @@ import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.model.Clientes;
 import br.com.servicera.util.Formatacao;
-import javax.swing.JOptionPane;
 
 public class TelaCliente extends javax.swing.JInternalFrame {
 

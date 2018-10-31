@@ -5,16 +5,14 @@
             <url>src/br/com/servicera/views/TelaOrdemServico.java</url>
             <bookmark id="1">
                 <name/>
-                <line>64</line>
+                <line>62</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gabri/Documents/GitHub/Servicera/src/br/com/servicera/model/OrdemServico.java</file>
-            <file>file:/C:/Users/gabri/Documents/GitHub/Servicera/src/br/com/servicera/dao/OrdemServicoDao.java</file>
-            <file>file:/C:/Users/gabri/Documents/GitHub/Servicera/src/br/com/servicera/views/TelaOrdemServico.java</file>
+            <file>file:/home/tinem/NetBeansProjects/Servicera/src/br/com/servicera/controller/TelaController.java</file>
         </group>
     </open-files>
 </project-private>

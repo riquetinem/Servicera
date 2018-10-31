@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 28, 2018 at 12:06 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Host: localhost
+-- Tempo de geração: 31/10/2018 às 20:16
+-- Versão do servidor: 10.1.34-MariaDB
+-- Versão do PHP: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -18,16 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+CREATE DATABASE servicera;
+
+USE servicera;
+
 --
--- Database: `servicera`
+-- Banco de dados: `servicera`
 --
-CREATE DATABASE IF NOT EXISTS `servicera` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `servicera`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estrutura para tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -41,13 +43,13 @@ CREATE TABLE `clientes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordem_servicos`
+-- Estrutura para tabela `ordem_servicos`
 --
 
 CREATE TABLE `ordem_servicos` (
   `id` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `situacao` varchar(20) NOT NULL,
+  `situacao` varchar(50) NOT NULL,
   `equipamento` varchar(150) NOT NULL,
   `defeito` varchar(150) NOT NULL,
   `servico` varchar(150) DEFAULT NULL,
@@ -59,7 +61,7 @@ CREATE TABLE `ordem_servicos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perfil`
+-- Estrutura para tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -67,10 +69,18 @@ CREATE TABLE `perfil` (
   `perfil` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `perfil`
+--
+
+INSERT INTO `perfil` (`id`, `perfil`) VALUES
+(1, 'admin'),
+(2, 'técnico');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `situacao`
+-- Estrutura para tabela `situacao`
 --
 
 CREATE TABLE `situacao` (
@@ -78,10 +88,21 @@ CREATE TABLE `situacao` (
   `situacao` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `situacao`
+--
+
+INSERT INTO `situacao` (`id`, `situacao`) VALUES
+(1, 'Na bancada'),
+(2, 'Aguardando aprovação'),
+(3, 'Aguardando peças'),
+(4, 'Abandonado pelo cliente'),
+(5, 'Retornou');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -94,67 +115,74 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Fazendo dump de dados para tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `fone`, `login`, `senha`, `perfil`) VALUES
+(1, 'Administrador', '(11) 91234-1234', 'root', 'e10adc3949ba59abbe56e057f20f883e', 'admin');
+
+--
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `clientes`
+-- Índices de tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ordem_servicos`
+-- Índices de tabela `ordem_servicos`
 --
 ALTER TABLE `ordem_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `perfil`
+-- Índices de tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `situacao`
+-- Índices de tabela `situacao`
 --
 ALTER TABLE `situacao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ordem_servicos`
+-- AUTO_INCREMENT de tabela `ordem_servicos`
 --
 ALTER TABLE `ordem_servicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `situacao`
+-- AUTO_INCREMENT de tabela `situacao`
 --
 ALTER TABLE `situacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
