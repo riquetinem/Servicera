@@ -1,15 +1,25 @@
 package br.com.servicera.views;
 
 import br.com.servicera.dao.ConnectionFactory;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.*;
 
 public class TelaPrincipal extends javax.swing.JFrame {
     
     Connection conexao = null;
 
-    public TelaPrincipal() {
-        initComponents();
+    public TelaPrincipal() {  
+        initComponents();   
+        Icone();
         conexao = ConnectionFactory.getConnection();
+    }
+    
+    private void Icone(){
+        URL caminhoicone = getClass().getResource("/br/com/servicera/icones/S.png");
+        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoicone);
+        this.setIconImage(iconeTitulo);
     }
     
     @SuppressWarnings("unchecked")

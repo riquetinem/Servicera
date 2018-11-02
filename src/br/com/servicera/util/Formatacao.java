@@ -20,15 +20,5 @@ public class Formatacao {
         return (new DefaultFormatterFactory(mask, mask));
 
     }
-    
-    public String valData(String data){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        
-        try {
-            sdf.setLenient(false);
-            return sdf.format(sdf.format(sdf.parse(data)));
-        } catch (Exception e) {
-            return "Erro na data!";            
-        }
-    }
+
 }

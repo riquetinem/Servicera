@@ -159,20 +159,20 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         setTitle("Servicera - Ordem de Serviço");
         setPreferredSize(new java.awt.Dimension(700, 500));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -193,26 +193,82 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
                 "ID", "Cliente", "Emissão", "Tipo", "Situação", "Equipamentos", "Defeitos", "Serviço", "Valor"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblOrdemServico.setColumnSelectionAllowed(true);
+        tblOrdemServico.getTableHeader().setReorderingAllowed(false);
         tblOrdemServico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblOrdemServicoMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tblOrdemServico);
+        tblOrdemServico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (tblOrdemServico.getColumnModel().getColumnCount() > 0) {
+            tblOrdemServico.getColumnModel().getColumn(0).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(0).setMaxWidth(25);
+            tblOrdemServico.getColumnModel().getColumn(1).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(1).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(2).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(2).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(2).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(3).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(3).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(3).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(4).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(4).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(4).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(5).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(5).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(5).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(6).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(6).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(6).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(7).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(7).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(7).setMaxWidth(20);
+            tblOrdemServico.getColumnModel().getColumn(8).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(8).setPreferredWidth(30);
+            tblOrdemServico.getColumnModel().getColumn(8).setMaxWidth(20);
+        }
 
         javax.swing.GroupLayout JpOSLayout = new javax.swing.GroupLayout(JpOS);
         JpOS.setLayout(JpOSLayout);
@@ -235,9 +291,9 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpOSLayout.createSequentialGroup()
-                        .addComponent(lblpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                        .addComponent(lblpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                         .addGap(4, 4, 4)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
