@@ -5,6 +5,10 @@ import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.dao.OrdemServicoDao;
 import br.com.servicera.model.OrdemServico;
 
+    /**
+     * Classe respondavel para criação de Conexões e Resultados 
+     * @author Servicera
+     */
 public class TelaOrdemServico extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
@@ -13,7 +17,11 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
     String id;
 
     private String tipo;
-
+    
+     /**
+     * Chama dos pacotes de Conexão com a DAO e faz a pesquisa da Ordem de Serviço
+     * @author Servicera
+     */
     public TelaOrdemServico() {
         initComponents();
         conexao = ConnectionFactory.getConnection();

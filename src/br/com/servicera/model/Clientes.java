@@ -1,6 +1,6 @@
 package br.com.servicera.model;
     /**
-    * Construtores sendo criados
+    * Responsavel por guardar dados dos clientes
     * @author Servicera
     */
 public class Clientes {
@@ -28,7 +28,7 @@ public class Clientes {
     }
 
     /**
-     * Construtores duplicados
+     * Sobrecarga de Construtores 
      * @author Servicera
      * @param nome
      * @param endereco
@@ -42,7 +42,7 @@ public class Clientes {
         this.email = email;
     }
     /**
-     * Recebendo o Construtor ID
+     * Retornando o valor Id do Cliente
      * @author Servicera
      * @return 
      */
@@ -50,7 +50,7 @@ public class Clientes {
         return id;
     }
     /**
-     * Configurando a recepção do ID
+     * Incrementando o valor para o ID
      * @author Servicera
      * @param id 
      */
@@ -59,7 +59,7 @@ public class Clientes {
     }
     
     /**
-     * Recebendo o Construtor Nome
+     * Retorna o nome do Cliente
      * @author Servicera
      * @return 
      */
@@ -67,7 +67,7 @@ public class Clientes {
         return nome;
     }
     /**
-     * Configurando a recepção do Nome
+     * Incrementando o nome do Cliente
      * @author Servicera
      * @param nome 
      */
@@ -75,7 +75,7 @@ public class Clientes {
         this.nome = nome;
     }
     /**
-     * Recebendo o Construtor Endereço
+     * Retornando o Endereço do Cliente
      * @author Servicera
      * @return 
      */
@@ -83,7 +83,7 @@ public class Clientes {
         return endereco;
     }
     /**
-     * Configurando a recepção do Endereço
+     * Incrementando o endereço do Cliente
      * @author Servicera
      * @param endereco 
      */
@@ -91,7 +91,7 @@ public class Clientes {
         this.endereco = endereco;
     }
     /**
-     * Recebendo o Construtor Telefone
+     * Retornando o Telefone do Cliente
      * @author Servicera
      * @return 
      */
@@ -99,7 +99,7 @@ public class Clientes {
         return telefone;
     }
     /**
-     * Configurando a recepção do Telefone
+     * Incrementando o Telefone do Cliente
      * @author Servicera
      * @param telefone 
      */
@@ -107,7 +107,7 @@ public class Clientes {
         this.telefone = telefone;
     }
     /**
-     * Recebendo o Construtor Email
+     * Retornando o Email do Cliente
      * @author Servicera
      * @return 
      */
@@ -115,7 +115,7 @@ public class Clientes {
         return email;
     }
     /**
-     * Configurando a recepção do Email
+     * Incrementando o Email do Cliente
      * @author Servicera
      * @param email 
      */

@@ -6,13 +6,21 @@ import br.com.servicera.dao.ConnectionFactory;
 import br.com.servicera.model.Clientes;
 import br.com.servicera.util.Formatacao;
 
+    /**
+     * Classe respondavel para criação de Conexões e Resultados 
+     * @author Servicera
+     */
 public class TelaCliente extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     String id;
-
+    
+    /**
+     * Chama dos pacotes util formatações para os JTextField's e Conexão com a DAO
+     * @author Servicera
+     */
     public TelaCliente() {
         initComponents();
         conexao = ConnectionFactory.getConnection();

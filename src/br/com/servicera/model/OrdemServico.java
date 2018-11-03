@@ -1,6 +1,6 @@
 package br.com.servicera.model;
     /**
-    * Construtores sendo criados
+    * Responsavel por guardar dados da Ordem de Serviço
     * @author Servicera
     */
 public class OrdemServico {
@@ -37,7 +37,7 @@ public class OrdemServico {
         this.cliente = cliente;
     }
     /**
-    * Construtores duplicados
+    * Sobrecarga de Construtores
     * @author Servicera
     * @param situacao
     * @param equipamento
@@ -57,7 +57,7 @@ public class OrdemServico {
         this.cliente = cliente;
     }
     /**
-     * Recebendo o Construtor ID
+     * Retornando o valor Id da Ordem de Serviço
      * @author Servicera
      * @return 
      */
@@ -65,7 +65,7 @@ public class OrdemServico {
         return id;
     }
     /**
-     * Configurando a recepção do ID
+     * Incrementando o valor do ID
      * @author Servicera
      * @param id 
      */
@@ -73,7 +73,7 @@ public class OrdemServico {
         this.id = id;
     }
     /**
-     * Recebendo o Construtor Data
+     * Retornando a Data
      * @author Servicera
      * @return 
      */
@@ -81,7 +81,7 @@ public class OrdemServico {
         return data;
     }
     /**
-     * Configurando a recepção do Data
+     *Incrementando a Data
      * @author Servicera
      * @param data 
      */
@@ -89,7 +89,7 @@ public class OrdemServico {
         this.data = data;
     }
     /**
-     * Recebendo o Construtor Situação
+     * Retornando a Situação
      * @author Servicera
      * @return 
      */
@@ -97,7 +97,7 @@ public class OrdemServico {
         return situacao;
     }
     /**
-     * Configurando a recepção do Situação
+     * Incrementando a Situação
      * @author Servicera
      * @param situacao 
      */
@@ -105,7 +105,7 @@ public class OrdemServico {
         this.situacao = situacao;
     }
     /**
-     * Recebendo o Construtor Equipamento
+     * Retornando o Equipamento
      * @author Servicera
      * @return 
      */
@@ -113,7 +113,7 @@ public class OrdemServico {
         return equipamento;
     }
     /**
-     * Configurando a recepção do Equipamento
+     * Incrementando o Equipamento
      * @author Servicera
      * @param equipamento 
      */
@@ -121,7 +121,7 @@ public class OrdemServico {
         this.equipamento = equipamento;
     }
     /**
-     * Recebendo o Construtor Defeito
+     * Retornando o Defeito do Equipamento
      * @author Servicera
      * @return 
      */
@@ -129,7 +129,7 @@ public class OrdemServico {
         return defeito;
     }
     /**
-     * Configurando a recepção do Defeito
+     * Incrementando o Defeito do Equipamento
      * @author Servicera
      * @param defeito 
      */
@@ -137,7 +137,7 @@ public class OrdemServico {
         this.defeito = defeito;
     }
     /**
-     * Recebendo o Construtor Serviço
+     * Retornando o Serviço
      * @author Servicera
      * @return 
      */
@@ -145,7 +145,7 @@ public class OrdemServico {
         return servico;
     }
     /**
-     * Configurando a recepção do Serviço
+     * Incrementando o Serviço
      * @author Servicera
      * @param servico 
      */
@@ -153,7 +153,7 @@ public class OrdemServico {
         this.servico = servico;
     }
     /**
-     * Recebendo o Construtor Técnico
+     * Retornando o Técnico
      * @author Servicera
      * @return 
      */
@@ -161,7 +161,7 @@ public class OrdemServico {
         return tecnico;
     }
     /**
-     * Configurando a recepção do Técnico
+     * Incrementando o Técnico
      * @author Servicera
      * @param tecnico 
      */
@@ -169,7 +169,7 @@ public class OrdemServico {
         this.tecnico = tecnico;
     }
     /**
-     * Recebendo o Construtor Valor
+     * Retornando o Valor do Equipamento
      * @author Servicera
      * @return 
      */
@@ -177,7 +177,7 @@ public class OrdemServico {
         return valor;
     }
     /**
-     * Configurando a recepção do valor
+     * Incrementando o Valor do Equipamento
      * @author Servicera
      * @param valor 
      */
@@ -185,7 +185,7 @@ public class OrdemServico {
         this.valor = valor;
     }
     /**
-     * Recebendo o Construtor Cliente
+     * Retornando o Cliente
      * @author Servicera
      * @return 
      */
@@ -193,7 +193,7 @@ public class OrdemServico {
         return cliente;
     }
     /**
-     * Configurando a recepção do Cliente
+     * Incrementando o Cliente
      * @author Servicera
      * @param cliente 
      */

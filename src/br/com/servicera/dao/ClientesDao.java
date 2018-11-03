@@ -9,6 +9,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
+    /**
+     * Classe publica de conexão Clientes com Banco de dados
+     * @author Servicera
+     */
 public class ClientesDao {
     
     /**

@@ -1,6 +1,6 @@
 package br.com.servicera.model;
     /**
-     * Construtores sendo criados
+     * Responsavel por guardar dados dos usuarios
      * @author Servicera
      */
 public class Usuarios {
@@ -30,7 +30,7 @@ public class Usuarios {
         setPerfil(perfil);
     }
     /**
-     * Construtores duplicados
+     * Sobrecarga de Construtores 
      * @author Servicera
      * @param nome
      * @param telefone
@@ -56,7 +56,7 @@ public class Usuarios {
         setSenha(senha);
     }
     /**
-     * Recebendo o Construtor ID
+     * Retornando o Id do Usuario
      * @author Servicera
      * @return 
      */
@@ -64,7 +64,7 @@ public class Usuarios {
         return id;
     }
     /**
-     * Configurando a recepção do ID
+     * Incrementando o ID do Usuario
      * @author Servicera
      * @param id 
      */
@@ -72,7 +72,7 @@ public class Usuarios {
         this.id = id;
     }
     /**
-     * Recebendo o Construtor Nome
+     * Retornando o nome do usuario
      * @author Servicera
      * @return 
      */
@@ -80,7 +80,7 @@ public class Usuarios {
         return nome;
     }
     /**
-     * Configurando a recepção do Nome
+     * Incrementando o nome do usuario
      * @author Servicera
      * @param nome 
      */
@@ -88,7 +88,7 @@ public class Usuarios {
         this.nome = nome;
     }
     /**
-     * Recebendo o Construtor Telefone
+     * Retornando o Telefone do usuario
      * @author Servicera
      * @return 
      */
@@ -96,7 +96,7 @@ public class Usuarios {
         return telefone;
     }
     /**
-     * Configurando a recepção do Telefone
+     * Incrementando o Telefone do usuario
      * @author Servicera
      * @param telefone 
      */
@@ -104,7 +104,7 @@ public class Usuarios {
         this.telefone = telefone;
     }
     /**
-     * Recebendo o Construtor Login
+     * Retornando o Login
      * @author Servicera
      * @return 
      */
@@ -112,7 +112,7 @@ public class Usuarios {
         return login;
     }
     /**
-     * Configurando a recepção do Login
+     * Incrementando o Login
      * @author Servicera
      * @param login 
      */
@@ -120,7 +120,7 @@ public class Usuarios {
         this.login = login;
     }
     /**
-     * Recebendo o Construtor Senha
+     * Retornando a Senha
      * @author Servicera
      * @return 
      */
@@ -128,7 +128,7 @@ public class Usuarios {
         return senha;
     }
     /**
-     * Configurando a recepção da Senha
+     * Incrementando a senha
      * @author Servicera
      * @param senha 
      */
@@ -136,7 +136,7 @@ public class Usuarios {
         this.senha = senha;
     }
     /**
-     * Recebendo o Construtor perfil adm/técnico
+     * retornando o perfil do usuario admin/técnico
      * @author Servicera
      * @return 
      */
@@ -144,7 +144,7 @@ public class Usuarios {
         return perfil;
     }
     /**
-     * Construtor criado para configurar a utilização do perfil admin/técnico
+     * Incrementando o perfil do usuario admin/técnico
      * @author Servicera
      * @param perfil 
      */

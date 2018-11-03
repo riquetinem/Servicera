@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
+    /**
+     * Classe publica que faz a conexão com Usuarios com Banco de Dados
+     * @author Servicera
+     */
 public class UsuariosDao {
     
     /**

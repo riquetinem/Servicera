@@ -6,10 +6,18 @@ import java.awt.Toolkit;
 import java.net.URL;
 import java.sql.*;
 
+    /**
+     * Classe publica que chama o metodo de Conexão
+     * @author Servicera
+     */
 public class TelaPrincipal extends javax.swing.JFrame {
     
     Connection conexao = null;
-
+    
+    /**
+     * Chama o metodo do icone da tela principal e metodos de conexão com a Dao
+     * @author Servicera
+     */
     public TelaPrincipal() {  
         initComponents();   
         Icone();

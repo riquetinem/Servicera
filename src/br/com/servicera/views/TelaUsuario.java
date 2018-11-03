@@ -1,4 +1,4 @@
-    package br.com.servicera.views;
+package br.com.servicera.views;
 
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
@@ -6,13 +6,22 @@ import br.com.servicera.dao.UsuariosDao;
 import br.com.servicera.model.Usuarios;
 import br.com.servicera.util.Formatacao;
 
+    /**
+     * Classe publica que chama o metodo de Conexão
+     * @author Servicera
+     */
 public class TelaUsuario extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     String id;
-
+    
+    /**
+     * Chama dos pacotes util formatações para os JTextField's e Conexão com a DAO e faz pesquisa do Usuario
+     * @author Servicera
+     */
+    
     public TelaUsuario() {
         initComponents();
         conexao = ConnectionFactory.getConnection();

@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
+    /**
+     * Classe que conecta a Ordem de Serviço com o Banco de Dados
+     * @author Servicera
+     */
 public class OrdemServicoDao {
     
     /**
