@@ -8,7 +8,12 @@ public class Criptografia {
     public Criptografia() {
 
     }
-
+    /**
+     * Metodo que efetua a Criptografia MD5 na senha de Login
+     * @author Servicera
+     * @param senha
+     * @throws Exception 
+     */
     public Criptografia(String senha) throws Exception {
         criptografaSenha(senha);
     }

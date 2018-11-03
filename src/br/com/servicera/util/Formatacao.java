@@ -9,7 +9,11 @@ public class Formatacao {
     public Formatacao(){
         
     }
-    
+    /**
+     * Metodo que utiliza uma mascara de formatação padrão para celulares de Usuario, Clientes e afins
+     * @author Servicera
+     * @return 
+     */
     public static DefaultFormatterFactory fone() {
         MaskFormatter mask = null;
         try {

@@ -15,7 +15,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Icone();
         conexao = ConnectionFactory.getConnection();
     }
-    
+    /**
+     * Metodo para inserção de um Icone na tela principal do projeto
+     * @author Servicera
+     */
     private void Icone(){
         URL caminhoicone = getClass().getResource("/br/com/servicera/icones/S.png");
         Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoicone);

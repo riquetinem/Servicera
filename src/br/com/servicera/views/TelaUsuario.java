@@ -1,4 +1,4 @@
-package br.com.servicera.views;
+    package br.com.servicera.views;
 
 import java.sql.*;
 import br.com.servicera.dao.ConnectionFactory;
@@ -32,6 +32,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         UsuariosDao cmb = new UsuariosDao();
         cmb.populaComboBox(cmbPerfil);
     }
+    /**
+     * Metodo utilizado para limpar o botão da TelaUsuario
+     * @author Servicera
+     */
 
     private void limpar() {
         txtNome.setText("");
@@ -42,7 +46,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         txtConfirmSenha.setText("");
         btnCreate.setEnabled(true);
     }
-
+    /**
+     * Metodo averiguando se foi efetuada a inserção de dados no Banco de dados
+     * @author Servicera
+     * * @throws SQLException 
+     */ 
+     
     private void adicionar() throws SQLException {
         boolean cadastrou = false;
 
@@ -60,8 +69,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             limpar();
             pesquisarUsuario();
         }
-    }
-
+    } 
+    /**
+     * Metodo que pesquisa dados no Banco de dados
+     * @author Servicera
+     * * @throws SQLException 
+     */ 
     private void pesquisarUsuario() throws SQLException {
         UsuariosDao dao = new UsuariosDao();
 
@@ -71,7 +84,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             throw new RuntimeException(ex);
         }
     }
-
+    /**
+     * Metodo para quando for selecionado com seu mouse alguma linha da Tabela que seja preenchida com os dados do BD
+     * @author Servicera
+     */
     public void setarCampos() {
         int setar = tblUsuarios.getSelectedRow();
         id = tblUsuarios.getModel().getValueAt(setar, 0).toString();
@@ -81,7 +97,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         cmbPerfil.setSelectedItem(tblUsuarios.getModel().getValueAt(setar, 4).toString());
         btnCreate.setEnabled(false);
     }
-
+    /**
+     * Metodo averiguando se foi efetuada a Atualização de dados no Banco de dados
+     * @author Servicera
+     * * @throws SQLException 
+     */ 
     private void alterar() throws SQLException {
         boolean alterou;
 
@@ -100,7 +120,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pesquisarUsuario();
         }
     }
-
+    /**
+     * Metodo averiguando se foi efetuada a remoção de dados no Banco de dados
+     * @author Servicera
+     * * @throws SQLException 
+     */ 
     private void remover() throws SQLException {
         boolean removeu;
 

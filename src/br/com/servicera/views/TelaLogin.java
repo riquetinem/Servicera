@@ -14,6 +14,12 @@ public class TelaLogin extends javax.swing.JFrame {
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    
+    /**
+     * Metodo utilizado para logar no Banco de dados
+     * @author Servicera
+     * @throws SQLException 
+     */
 
     private void logar() throws SQLException {
         boolean logou = false;
@@ -41,6 +47,10 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();       
         conexao = ConnectionFactory.getConnection();
+        /**
+         * If com a função de declarar se o Banco de dados está Online ou Offline
+         * @author Servicera
+         */
         if (conexao != null) {
             lblstatus.setText("Conectado");
         } else {

@@ -32,6 +32,10 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         pesquisarOrdemServico();
     }
 
+    /**
+     * Metodo utilizado para limpar o botão da TelaOrdemServico
+     * @author Servicera
+     */
     private void limpar() {
         txtDefeito.setText("");
         txtEquipamento.setText("");
@@ -44,12 +48,22 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         btnCreate.setEnabled(true);
         tblOrdemServico.setVisible(true);
     }
+    
+    /**
+     * Metodo para pesquisar a Ordem de Serviço no Banco de dados
+     * @author Servicera
+     */
 
     private void pesquisarOrdemServico() {
         OrdemServicoDao dao = new OrdemServicoDao();
 
         dao.pesquisarOrdemServico(txtPesquisar.getText(), tblOrdemServico);
     }
+    
+     /**
+     * Metodo para quando for selecionado com seu mouse alguma linha da Tabela que seja preenchida com os dados do BD
+     * @author Servicera
+     */
 
     private void setarCampos() {
         int setar = tblOrdemServico.getSelectedRow();
@@ -62,7 +76,11 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         cmbTecnico.setSelectedItem(tblOrdemServico.getModel().getValueAt(setar, 7).toString());
         txtValor.setText(tblOrdemServico.getModel().getValueAt(setar, 8).toString());
     }
-
+    
+    /**
+     * Metodo averiguando se foi efetuada a inserção de dados no Banco de dados
+     * @author Servicera
+     */
     private void adiciona() {
         boolean adicionou = false;
 
@@ -83,7 +101,10 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
             pesquisarOrdemServico();
         }
     }
-
+    /**
+     * Metodo averiguando se foi efetuada a Atualização de dados no Banco de dados
+     * @author Servicera
+     */
     private void alterar() {
         boolean alterou = false;
 
@@ -104,7 +125,11 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
             pesquisarOrdemServico();
         }
     }
-
+    
+    /**
+     * Metodo averiguando se foi efetuada a remoção de dados no Banco de dados
+     * @author Servicera
+     */
     private void excluir() {
         boolean excluiu = false;
 
@@ -244,30 +269,19 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
             tblOrdemServico.getColumnModel().getColumn(0).setMinWidth(15);
             tblOrdemServico.getColumnModel().getColumn(0).setPreferredWidth(30);
             tblOrdemServico.getColumnModel().getColumn(0).setMaxWidth(25);
-            tblOrdemServico.getColumnModel().getColumn(1).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(1).setResizable(false);
             tblOrdemServico.getColumnModel().getColumn(1).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(1).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(2).setMinWidth(15);
             tblOrdemServico.getColumnModel().getColumn(2).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(2).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(3).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(3).setResizable(false);
             tblOrdemServico.getColumnModel().getColumn(3).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(3).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(4).setMinWidth(15);
             tblOrdemServico.getColumnModel().getColumn(4).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(4).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(5).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(5).setResizable(false);
             tblOrdemServico.getColumnModel().getColumn(5).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(5).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(6).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(6).setResizable(false);
             tblOrdemServico.getColumnModel().getColumn(6).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(6).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(7).setMinWidth(15);
             tblOrdemServico.getColumnModel().getColumn(7).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(7).setMaxWidth(20);
-            tblOrdemServico.getColumnModel().getColumn(8).setMinWidth(15);
+            tblOrdemServico.getColumnModel().getColumn(8).setResizable(false);
             tblOrdemServico.getColumnModel().getColumn(8).setPreferredWidth(30);
-            tblOrdemServico.getColumnModel().getColumn(8).setMaxWidth(20);
         }
 
         javax.swing.GroupLayout JpOSLayout = new javax.swing.GroupLayout(JpOS);

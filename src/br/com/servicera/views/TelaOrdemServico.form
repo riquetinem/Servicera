@@ -263,42 +263,42 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="20" minWidth="15" prefWidth="30" resizable="true">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>

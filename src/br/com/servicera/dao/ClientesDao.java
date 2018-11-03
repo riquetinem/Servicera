@@ -10,6 +10,14 @@ import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
 public class ClientesDao {
+    
+    /**
+     * Metodo que lhe permite adicionar clientes com a Query na TelaCliente 
+     * @author Servicera
+     * @param cliente
+     * @return
+     * @throws SQLException 
+     */
 
     public boolean adicionarCliente(Clientes cliente) throws SQLException {
         Connection conexao = ConnectionFactory.getConnection();
@@ -49,6 +57,13 @@ public class ClientesDao {
         }
 
     }
+    
+    /**
+     * Metodo que lhe permite atualizar clientes com a Query na TelaCliente
+     * @author Servicera
+     * @param cliente
+     * @return 
+     */
 
     public boolean alterarCliente(Clientes cliente) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -95,6 +110,13 @@ public class ClientesDao {
             return false;
         }
     }
+    
+    /**
+     * Metodo que lhe permite Remover clientes com a Query na TelaCliente
+     * @author Servicera
+     * @param id
+     * @return 
+     */
 
     public boolean removeClientes(String id) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -126,6 +148,13 @@ public class ClientesDao {
             return false;
         }
     }
+    
+    /**
+     * Metodo que lhe permite pesquisar clientes com a Query na TelaCliente
+     * @author Servicera
+     * @param nome
+     * @param tblClientes 
+     */
 
     public void pesquisarClientes(String nome, JTable tblClientes) {
         Connection conexao = ConnectionFactory.getConnection();

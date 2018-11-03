@@ -6,7 +6,7 @@ public class Clientes {
     private String endereco;
     private String telefone;
     private String email;
-
+    
     public Clientes(String id, String nome, String endereco, String telefone, String email) {
         this.id = id;
         this.nome = nome;

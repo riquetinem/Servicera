@@ -2,6 +2,11 @@ package br.com.servicera.dao;
 
 import java.sql.*;
 
+/**
+ * Classe publica que contem a String de conexão com o Banco de Dados Mysql
+ * @author Servicera
+ */
+
 public class ConnectionFactory {
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/servicera?useTimezone=true&serverTimezone=UTC"; 

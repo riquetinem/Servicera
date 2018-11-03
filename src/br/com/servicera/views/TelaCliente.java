@@ -22,7 +22,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         jffTelefone.setFormatterFactory(format.fone());
     }
-
+    /**
+     * Metodo utilizado para limpar o botão da TelaCliente
+     * @author Servicera
+     */
     private void limpar() {
         txtNome.setText("");
         jffTelefone.setText("");
@@ -30,7 +33,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtEndereco.setText("");
         btnAdicionar.setEnabled(true);
     }
-
+    
+    /**
+     * Metodo averiguando se foi efetuada a inserção de dados no Banco de dados
+     * @author Servicera
+     */
     private void adicionar() {
         boolean cadastrou = false;
 
@@ -49,7 +56,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             pesquisarCliente();
         }
     }
-
+    
+    /**
+     * Metodo que pesquisa dados no Banco de dados
+     * @author Servicera
+     */
     private void pesquisarCliente() {
         ClientesDao dao = new ClientesDao();
 
@@ -60,6 +71,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         }
 
     }
+    
+    /**
+     * Metodo para quando for selecionado com seu mouse alguma linha da Tabela que seja preenchida com os dados do BD
+     * @author Servicera
+     */
 
     public void setarCampos() {
         int setar = tblClientes.getSelectedRow();
@@ -71,7 +87,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         txtEmail.setText(tblClientes.getModel().getValueAt(setar,4).toString());
         btnAdicionar.setEnabled(false);
     }
-
+     /**
+     * Metodo averiguando se foi efetuada a Atualização de dados no Banco de dados
+     * @author Servicera
+     */
     private void alterar() {
         boolean alterou = false;
 
@@ -90,7 +109,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             pesquisarCliente();
         }
     }
-
+     /**
+     * Metodo averiguando se foi efetuada a remoção de dados no Banco de dados
+     * @author Servicera
+     */
     private void remover() {
         boolean removeu = false;
 

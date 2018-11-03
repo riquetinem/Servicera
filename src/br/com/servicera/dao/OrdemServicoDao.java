@@ -11,6 +11,12 @@ import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
 public class OrdemServicoDao {
+    
+    /**
+     * Metodo que seleciona quem está cadastrado como Técnico no Banco de Dados
+     * @author Servicera
+     * @param cmbTecnico 
+     */
 
     public static void populaComboBoxTecnicos(JComboBox cmbTecnico) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -29,7 +35,11 @@ public class OrdemServicoDao {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-
+    /**
+     * Metodo que seleciona qual Situação está cadastrada no Banco de Dados
+     * @author Servicera
+     * @param cmbSituacao 
+     */
     public static void populaComboBoxSituacao(JComboBox cmbSituacao) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -47,7 +57,11 @@ public class OrdemServicoDao {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-
+    /**
+     * Metodo que seleciona qual cliente está cadastrado no Banco de Dados
+     * @author Servicera
+     * @param cmbCliente 
+     */
     public static void populaComboBoxCliente(JComboBox cmbCliente) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -65,6 +79,13 @@ public class OrdemServicoDao {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
+    
+    /**
+     * Metodo que adiciona a Ordem de serviço no Banco de dados assim que é efetuado o Insert.
+     * @author Servicera
+     * @param ordemServico
+     * @return 
+     */
 
     public boolean adicionarOrdemServico(OrdemServico ordemServico) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -102,7 +123,13 @@ public class OrdemServicoDao {
             return false;
         }
     }
-
+    
+    /**
+     * Metodo que atualiza a Ordem de serviço no Banco de dados assim que é efetuado o Delete.
+     * @author Servicera
+     * @param ordemServico
+     * @return 
+     */
     public boolean alteraOrdemServico(OrdemServico ordemServico) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -145,6 +172,13 @@ public class OrdemServicoDao {
         }
 
     }
+    
+    /**
+     * Metodo que exclui a Ordem de serviço no Banco de dados assim que é efetuado o Delete.
+     * @author Servicera
+     * @param id
+     * @return 
+     */
 
     public boolean excluirOrdemServico(String id) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -177,6 +211,13 @@ public class OrdemServicoDao {
         }
 
     }
+    
+    /**
+     * Metodo que pesquisa a Ordem de Serviço com parametro do Equipamento
+     * @author Servicera
+     * @param equipamento
+     * @param tblOrdemServico 
+     */
 
     public void pesquisarOrdemServico(String equipamento, JTable tblOrdemServico) {
         Connection conexao = ConnectionFactory.getConnection();

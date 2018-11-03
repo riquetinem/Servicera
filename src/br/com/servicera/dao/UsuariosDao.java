@@ -13,6 +13,16 @@ import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
 public class UsuariosDao {
+    
+    /**
+     * Metodo que realiza o Login testando Usuario e senha
+     * @author Sericera
+     * @param user
+     * @param senha
+     * @return
+     * @throws SQLException
+     * @throws Exception 
+     */
 
     public boolean realizaLogin(String user, String senha) throws SQLException, Exception {
         String sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
@@ -54,6 +64,12 @@ public class UsuariosDao {
         }
 
     }
+    
+    /**
+     * Metodo que seleciona os perfis dos usuarios
+     * @author Servicera
+     * @param cmbPerfil 
+     */
 
     public void populaComboBox(JComboBox cmbPerfil) {
         Connection conexao = ConnectionFactory.getConnection();
@@ -72,6 +88,16 @@ public class UsuariosDao {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
+    
+    /**
+     * Metodo que adiciona o usuario no banco de dados, conferindo para ver se as senhas inseridas batem 
+     * @author Servicera
+     * @param usuario
+     * @param confSenha
+     * @return
+     * @throws SQLException
+     * @throws Exception 
+     */
 
     public boolean adicionarUsuario(Usuarios usuario, String confSenha) throws SQLException, Exception {
         boolean correto = usuario.verificaSenha(confSenha);
@@ -120,6 +146,14 @@ public class UsuariosDao {
 
     }
 
+    /**
+     * Metodo que permite pesquisar na TelaUsuarios com parametro do nome do usuario
+     * @author Servicera
+     * @param nome
+     * @param tblUsuarios
+     * @throws SQLException
+     * @throws Exception 
+     */
     public void pesquisarUsuario(String nome, JTable tblUsuarios) throws SQLException, Exception {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -138,6 +172,13 @@ public class UsuariosDao {
         }
     }
 
+    /**
+     * Metodo que permite alterar o Usuario com parametro de Confirmação de senha
+     * @author Servicera
+     * @param usuario
+     * @param confSenha
+     * @return 
+     */
     public boolean alteraUsuario(Usuarios usuario, String confSenha) {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
@@ -201,6 +242,14 @@ public class UsuariosDao {
         }
     }
 
+    /**
+     * Metodo que remove o usuario do banco de dados, com parametro de ID para a remoção
+     * @author Servicera
+     * @param id
+     * @return
+     * @throws SQLException
+     * @throws Exception 
+     */
     public boolean removeUsuario(String id) throws SQLException, Exception {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pst = null;
