@@ -83,6 +83,7 @@ public class TelaOrdemServico extends javax.swing.JInternalFrame {
         txtServico.setText(tblOrdemServico.getModel().getValueAt(setar, 6).toString());
         cmbTecnico.setSelectedItem(tblOrdemServico.getModel().getValueAt(setar, 7).toString());
         txtValor.setText(tblOrdemServico.getModel().getValueAt(setar, 8).toString());
+         btnCreate.setEnabled(false);
     }
     
     /**

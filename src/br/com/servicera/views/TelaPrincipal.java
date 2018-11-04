@@ -33,6 +33,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setIconImage(iconeTitulo);
     }
     
+    private void Cliente(){
+        TelaCliente Cliente = new TelaCliente();
+        Cliente.setVisible(true);
+        Desktop.add(Cliente);
+    }
+    private void Usuarios(){
+        TelaUsuario usuario = new TelaUsuario(); 
+        usuario.setVisible(true); 
+        Desktop.add(usuario); 
+    }
+    private void OS(){
+        TelaOrdemServico os=new TelaOrdemServico();
+        os.setVisible(true);
+        Desktop.add(os);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -147,21 +163,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menSairMouseClicked
 
     private void menuOrdemServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuOrdemServicosMouseClicked
-        TelaOrdemServico os=new TelaOrdemServico();
-        os.setVisible(true);
-        Desktop.add(os);
+        OS();
     }//GEN-LAST:event_menuOrdemServicosMouseClicked
 
     private void menuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuariosActionPerformed
-        TelaUsuario usuario = new TelaUsuario(); 
-        usuario.setVisible(true); 
-        Desktop.add(usuario); 
+        Usuarios();
     }//GEN-LAST:event_menuUsuariosActionPerformed
 
     private void menuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClientesActionPerformed
-        TelaCliente Cliente = new TelaCliente();
-        Cliente.setVisible(true);
-        Desktop.add(Cliente);
+        Cliente();
     }//GEN-LAST:event_menuClientesActionPerformed
 
     /**
